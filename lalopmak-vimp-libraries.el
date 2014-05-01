@@ -15,10 +15,10 @@
 ;; SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 
-;;; Misc library called by lalopmak-evil.
+;;; Misc library called by lalopmak-vimp.
 
 
-(defvar lalopmak-evil-hintstring "Hints for lalop's colemak-evil configuration.  Accessed via: :hints, :h, :ars, or M-x lalopmak-evil-hints.
+(defvar lalopmak-vimp-hintstring "Hints for lalop's colemak-vimp configuration.  Accessed via: :hints, :h, :ars, or M-x lalopmak-vimp-hints.
 
 To dismiss: retype one of the above commands or press q in the buffer.
 
@@ -49,7 +49,7 @@ Normal mode:
 ====Commands====
 
 Help:
-:hints = :ars = shows/dismisses this prompt (M-x lalopmak-evil-hints)
+:hints = :ars = shows/dismisses this prompt (M-x lalopmak-vimp-hints)
 :key = describes key (C-h k)
 :fun = describes function (C-h f)
 :variable = describes variable (C-h v)
@@ -82,7 +82,7 @@ Frame size changers:
 ")
 
 
-(defvar lalopmak-evil-mnemonic-hintstring "Mnemonic (less descriptive) hints for lalop's colemak-evil configuration.  Accessed via: :mnemonic
+(defvar lalopmak-vimp-mnemonic-hintstring "Mnemonic (less descriptive) hints for lalop's colemak-vimp configuration.  Accessed via: :mnemonic
 
 To dismiss: retype one of the above commands or press q in the buffer.
 
@@ -140,22 +140,22 @@ y = sYmbol
 
 (require 'lalopmak-buffer)
 
-(defun lalopmak-evil-hints ()
+(defun lalopmak-vimp-hints ()
   "Provides hints about this configuration, or closes said hints."
   (interactive)
   (close-visible-buffer-else-call-helper "Colemak-Evil Hints"
     with-output-to-temp-buffer
-    (princ lalopmak-evil-hintstring)))
+    (princ lalopmak-vimp-hintstring)))
 
 
-(defun lalopmak-evil-mnemonic-hints ()
+(defun lalopmak-vimp-mnemonic-hints ()
   "Provides hints about this configuration, or closes said hints."
   (interactive)
   (close-visible-buffer-else-call-helper "Colemak-Evil Hints (Mnemonic)"
     with-output-to-temp-buffer
-    (princ lalopmak-evil-mnemonic-hintstring)))
+    (princ lalopmak-vimp-mnemonic-hintstring)))
 
-(defun lalopmak-evil-scroll-then-center (count motion)
+(defun lalopmak-vimp-scroll-then-center (count motion)
   "Does a motion, then centers"
   (if count
       (funcall motion count)
@@ -164,7 +164,7 @@ y = sYmbol
 
 ;;;;;;;;;;;; Idle actions ;;;;;;;;;;;;;;
 
-(defun lalopmak-evil-add-trailing-whitespace-to-line ()
+(defun lalopmak-vimp-add-trailing-whitespace-to-line ()
   "Adds a trailing whitespace to the line unless one exists already"
   (interactive)
   (save-excursion (end-of-line)
@@ -172,13 +172,13 @@ y = sYmbol
                               (char-before))
                     (insert-char ?\s))))
 
-(defun lalopmak-evil-add-trailing-whitespace-to-window ()
+(defun lalopmak-vimp-add-trailing-whitespace-to-window ()
   "Adds a trailing whitespace to all lines on the page"
   (interactive)
   (save-excursion (goto-char (window-start))
                   (let ((limit (window-end)))
                     (while (and (not (eobp)) (<= (point) limit))
-                      (lalopmak-evil-add-trailing-whitespace-to-line)
+                      (lalopmak-vimp-add-trailing-whitespace-to-line)
                       (forward-line)))))
 
 ;;some programs, e.g. vimlike configs like ranger, still depend on
@@ -314,4 +314,4 @@ y = sYmbol
 ;;          (height (window-height))
 ;;          (width
 
-(provide 'lalopmak-evil-libraries)
+(provide 'lalopmak-vimp-libraries)
