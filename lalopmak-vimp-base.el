@@ -59,8 +59,7 @@ are those to add a keybinding to upon hook being triggered.")
     (setq maps (list vimp-normal-state-map
                      vimp-visual-state-map
                      vimp-insert-state-map
-                     vimp-emacs-state-map
-		     vimp-motion-state-map)))
+                     vimp-motion-state-map)))
   (while maps
     (lalopmak-vimp-define-key (pop maps) key def)))
 
@@ -70,15 +69,13 @@ are those to add a keybinding to upon hook being triggered.")
                           def
                           (list vimp-normal-state-map
                                 vimp-visual-state-map
-                                vimp-emacs-state-map
                                 vimp-motion-state-map)))
 
 (defun set-in-all-vimp-states-but-insert-and-motion (key def)
   (set-in-all-vimp-states key
                           def
                           (list vimp-normal-state-map
-                                vimp-visual-state-map
-                                vimp-emacs-state-map)))
+                                vimp-visual-state-map)))
 
 
 ;; Experiment: make space into a "leader" key
@@ -194,7 +191,7 @@ adds 'motion bindings to that lisp mode map."
                                    " w" 'paredit-splice-sexp-killing-backward
                                    " f" 'paredit-splice-sexp
                                    " p" 'paredit-splice-sexp-killing-forward
-                                   " g" 'paredit-convolute-sexp) 
+                                   " g" 'paredit-convolute-sexp)
 
 ;;; Make the return and backspace keys work in normal mode
 ;; Backspace in normal mode doesn't work in the terminal.
@@ -349,8 +346,8 @@ metadata should be a list, e.g. (:type line :repeat abort) or nil"
 
 ;;git
 (vimp-ex-define-cmd "git" 'magit-status)
- 
-(vimp-ex-define-cmd "ccmode" 'centered-cursor-mode) 
+
+(vimp-ex-define-cmd "ccmode" 'centered-cursor-mode)
 
 
 ;;comment
@@ -392,10 +389,10 @@ metadata should be a list, e.g. (:type line :repeat abort) or nil"
 ;; (vimp-ex-define-cmd "registers" (kbd "C-x r"))
 ;; (vimp-ex-define-cmd "showregisters" 'vimp-show-registers)
 
-(vimp-ex-define-cmd "li[nes]" 'list-matching-lines) 
+(vimp-ex-define-cmd "li[nes]" 'list-matching-lines)
 
-(vimp-ex-define-cmd "gr[ep]" 'grep-find) 
-(vimp-ex-define-cmd "rgr[ep]" 'rgrep) 
+(vimp-ex-define-cmd "gr[ep]" 'grep-find)
+(vimp-ex-define-cmd "rgr[ep]" 'rgrep)
 
 (defun dired-in-current-directory (&optional wdired)
   "Opens dired in current directory.
@@ -405,8 +402,8 @@ If wdired true, opens wdired as well."
   (unless (equal major-mode 'dired-mode)
     (dired default-directory))
   (when wdired
-    (wdired-change-to-wdired-mode) 
-    (vimp-normal-state))) 
+    (wdired-change-to-wdired-mode)
+    (vimp-normal-state)))
 
 (defun wdired-in-current-directory ()
   "Opens wdired in current directory"
@@ -414,7 +411,7 @@ If wdired true, opens wdired as well."
   (dired-in-current-directory t))
 
 (vimp-ex-define-cmd "di[red]" 'dired-in-current-directory)
-(vimp-ex-define-cmd "wd[ired]" 'wdired-in-current-directory) 
+(vimp-ex-define-cmd "wd[ired]" 'wdired-in-current-directory)
 
 (defun clip-abs-path ()
   "Put the current absolute path on the clipboard"
@@ -423,7 +420,7 @@ If wdired true, opens wdired as well."
                       (dired-current-directory)
                     (buffer-file-name))))
     (when filename
-        (x-select-text filename)))) 
+        (x-select-text filename))))
 
 
 (vimp-ex-define-cmd "abs" 'clip-abs-path)
@@ -438,7 +435,7 @@ If wdired true, opens wdired as well."
 (defun lalopmak-vimp-clone-split-buffer ()
   (interactive)
   (let ((cloned-buffer (call-interactively 'clone-indirect-buffer)))
-    nil)) 
+    nil))
 
 (vimp-ex-define-cmd "csplit" 'lalopmak-vimp-clone-split-buffer)
 ;;open external program
@@ -637,7 +634,7 @@ entire region has been struck through) unstrikes region."
           (setq x-last-selected-text-primary))))))
 
 (setq vimp-search-module 'vimp-search)
- 
+
 ;;Generic functions
 
 (defun transpose-symbols (arg)
