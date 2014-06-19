@@ -51,9 +51,9 @@
 (lalopmak-vimp-define-key vimp-motion-state-map "j" 'lalopmak-vimp-scroll-page-up)
 (lalopmak-vimp-define-key vimp-motion-state-map "h" 'lalopmak-vimp-scroll-page-down)
 
-;;; Page halfway up/down
-(set-in-all-vimp-states-but-insert "\C-u" 'vimp-scroll-up)
-(set-in-all-vimp-states-but-insert "\C-e" 'vimp-scroll-down)
+;;; Prev/next buffer
+(set-in-all-vimp-states-but-insert "\C-u" 'previous-buffer)
+(set-in-all-vimp-states-but-insert "\C-e" 'next-buffer)
 
 ;;; Words forward/backward
 (set-in-all-vimp-states-but-insert "l" 'lalopmak-vimp-backward-word-begin)
