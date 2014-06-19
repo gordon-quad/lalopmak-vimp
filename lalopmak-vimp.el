@@ -31,13 +31,6 @@
 (set-in-all-vimp-states-but-insert "e" 'vimp-next-line)
 (set-in-all-vimp-states-but-insert "n" 'lalopmak-vimp-backward-char)
 (set-in-all-vimp-states-but-insert "i" 'lalopmak-vimp-forward-char)
-;; (lalopmak-vimp-define-key vimp-operator-state-map "i" 'vimp-forward-char)
-
-;; ;;; Turbo navigation mode
-;; (set-in-all-vimp-states-but-insert "I" 'vimp-backward-paragraph)
-;; (set-in-all-vimp-states-but-insert "N" 'vimp-forward-paragraph)
-;; (set-in-all-vimp-states-but-insert "E" 'vimp-backward-sentence)
-;; (set-in-all-vimp-states-but-insert "U" 'vimp-forward-sentence)
 
 ;;; Beginning/end of line (home/end)
 ;; Use back-to-indentation instead of vimp-beginning-of-line so that
@@ -47,12 +40,12 @@
 (set-in-all-vimp-states-but-insert "Y" 'vimp-end-of-line)
 
 (vimp-define-motion lalopmak-vimp-scroll-page-up (count)
-  "Scrolls page up, centers the cursor"
-  (lalopmak-vimp-scroll-then-center count 'vimp-scroll-page-up))
+  "Scrolls page up 10 lines"
+  (previous-line 10))
 
 (vimp-define-motion lalopmak-vimp-scroll-page-down (count)
-  "Scrolls page down, centers the cursor"
-  (lalopmak-vimp-scroll-then-center count 'vimp-scroll-page-down))
+  "Scrolls down 10 lines"
+  (next-line 10))
 
 ;;; Page up/page down
 (lalopmak-vimp-define-key vimp-motion-state-map "j" 'lalopmak-vimp-scroll-page-up)
@@ -345,13 +338,13 @@
 
 ;switch to buffer
 (lalopmak-vimp-define-key vimp-motion-state-map "b" 'switch-to-buffer)
-(lalopmak-vimp-define-key vimp-motion-state-map "\M-b" 'ido-write-file) 
+(lalopmak-vimp-define-key vimp-motion-state-map "\M-b" 'ido-write-file)
 (lalopmak-vimp-define-key vimp-motion-state-map "\C-b" 'fiplr-find-file)
 (lalopmak-vimp-define-key vimp-motion-state-map "B" 'find-file)
 
 ;;switches transpose words to transpose symbols
 (lalopmak-vimp-define-key vimp-insert-state-map "\C-t" 'transpose-symbols)
-(lalopmak-vimp-define-key vimp-normal-state-map "\C-t" 'transpose-symbols) 
+(lalopmak-vimp-define-key vimp-normal-state-map "\C-t" 'transpose-symbols)
 
 ;;;;;;;;;;;;PASTING;;;;;;;;;;;;;;;;;;
 (vimp-define-motion lalopmak-vimp-paste-below (count)
