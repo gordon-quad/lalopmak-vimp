@@ -60,8 +60,8 @@
 (set-in-all-vimp-states-but-insert "R" 'vimp-insert-line)
 
 ;;Ace jump
-(set-in-all-vimp-states-but-insert "l" 'lalopmak-vimp-narrowed-ace-jump-char-mode)
-(set-in-all-vimp-states-but-insert "\M-l" 'lalopmak-vimp-ace-jump-char-mode)
+(set-in-all-vimp-states-but-insert "l" 'lalopmak-vimp-ace-jump-char-mode)
+;; (set-in-all-vimp-states-but-insert "\M-l" 'lalopmak-vimp-ace-jump-char-mode)
 
 (set-in-all-vimp-states-but-insert "f" 'helm-semantic-or-imenu)
 
