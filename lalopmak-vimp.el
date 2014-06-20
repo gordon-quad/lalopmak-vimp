@@ -33,9 +33,6 @@
 (set-in-all-vimp-states-but-insert "i" 'lalopmak-vimp-forward-char)
 
 ;;; Beginning/end of line (home/end)
-;; Use back-to-indentation instead of vimp-beginning-of-line so that
-;; cursor ends up at the first non-whitespace character of a line. 0
-;; can be used to go to real beginning of line
 (set-in-all-vimp-states-but-insert "L" 'back-to-indentation)
 (set-in-all-vimp-states-but-insert "Y" 'vimp-end-of-line)
 
@@ -47,34 +44,27 @@
   "Scrolls down 10 lines"
   (next-line 10))
 
-;;; Page up/page down
-(lalopmak-vimp-define-key vimp-motion-state-map "j" 'lalopmak-vimp-scroll-page-up)
-(lalopmak-vimp-define-key vimp-motion-state-map "h" 'lalopmak-vimp-scroll-page-down)
 
 ;;; Prev/next buffer
-(set-in-all-vimp-states-but-insert "\C-u" 'previous-buffer)
-(set-in-all-vimp-states-but-insert "\C-e" 'next-buffer)
+(set-in-all-vimp-states-but-insert "\M-u" 'lalopmak-vimp-scroll-page-up)
+(set-in-all-vimp-states-but-insert "\M-e" 'lalopmak-vimp-scroll-page-down)
 
 ;;; Words forward/backward
-(set-in-all-vimp-states-but-insert "l" 'lalopmak-vimp-backward-word-begin)
-(set-in-all-vimp-states-but-insert "y" 'lalopmak-vimp-forward-word-end)
-
-
-;; word object maps from default
-;; (lalopmak-vimp-define-key vimp-outer-text-objects-map "l" 'vimp-a-word)
-;; (lalopmak-vimp-define-key vimp-outer-text-objects-map "y" 'vimp-a-word)
-;; (lalopmak-vimp-define-key vimp-inner-text-objects-map "l" 'vimp-inner-word)
-;; (lalopmak-vimp-define-key vimp-inner-text-objects-map "y" 'vimp-inner-word)
+;; (set-in-all-vimp-states-but-insert "\C-n" 'lalopmak-vimp-backward-word-begin)
+;; (set-in-all-vimp-states-but-insert "\C-i" 'lalopmak-vimp-forward-word-end)
 
 ;;; WORD forward/backward
-(set-in-all-vimp-states-but-insert "\C-y" 'lalopmak-vimp-forward-WORD-end)
-(set-in-all-vimp-states-but-insert "\C-l" 'lalopmak-vimp-backward-WORD-begin)
+(set-in-all-vimp-states-but-insert "\M-i" 'lalopmak-vimp-forward-WORD-end)
+(set-in-all-vimp-states-but-insert "\M-n" 'lalopmak-vimp-backward-WORD-begin)
 
-;; WORD object maps from default
-;; (lalopmak-vimp-define-key vimp-outer-text-objects-map "\C-l" 'vimp-a-WORD)
-;; (lalopmak-vimp-define-key vimp-outer-text-objects-map "\C-y" 'vimp-a-WORD)
-;; (lalopmak-vimp-define-key vimp-inner-text-objects-map "\C-l" 'vimp-inner-WORD)
-;; (lalopmak-vimp-define-key vimp-inner-text-objects-map "\C-y" 'vimp-inner-WORD)
+
+;;Ace jump
+(set-in-all-vimp-states-but-insert "l" 'lalopmak-vimp-narrowed-ace-jump-char-mode)
+(set-in-all-vimp-states-but-insert "\M-l" 'lalopmak-vimp-ace-jump-char-mode)
+;; So far I find that I only need these two, but the char-to-mode one looks like it
+;; could be useful as a motion, because it stops one char short of the character.
+;; (set-in-all-vimp-states-but-insert "F" 'lalopmak-vimp-narrowed-ace-jump-char-to-mode)
+;; (set-in-all-vimp-states-but-insert "W" 'lalopmak-vimp-ace-jump-char-to-mode)
 
 
 ;;directional object maps
@@ -93,18 +83,6 @@
 
 ;; Execute command: map : to ;
 (lalopmak-vimp-define-key vimp-motion-state-map ";" 'vimp-ex);;; End of word forward/backward
-
-;;; Folds, etc.
-;; (lalopmak-vimp-define-key vimp-normal-state-map ",o" 'vimp-open-fold)
-;; (lalopmak-vimp-define-key vimp-normal-state-map ",c" 'vimp-close-fold)
-;; (lalopmak-vimp-define-key vimp-normal-state-map ",a" 'vimp-toggle-fold)
-;; (lalopmak-vimp-define-key vimp-normal-state-map ",r" 'vimp-open-folds)
-;; (lalopmak-vimp-define-key vimp-normal-state-map ",m" 'vimp-close-folds)
-
-;;; I'm not sure what this is
-;; for virtualedit=onemore
-;; set virtualedit=block,onemore
-
 
 ;;; Cut/copy/paste
 (set-in-all-vimp-states-but-insert "x" 'vimp-substitute)
@@ -321,12 +299,6 @@
 ;;conflicts with undo
 ;; (set-in-all-vimp-states-but-insert "\C-t" 'vimp-jump-backward)
 ;; (set-in-all-vimp-states-but-insert "\C-p" 'vimp-jump-forward)
-
-;;Ace jump
-(set-in-all-vimp-states-but-insert "f" 'lalopmak-vimp-narrowed-ace-jump-char-mode)
-(set-in-all-vimp-states-but-insert "F" 'lalopmak-vimp-narrowed-ace-jump-char-to-mode)
-(set-in-all-vimp-states-but-insert "w" 'lalopmak-vimp-ace-jump-char-mode)
-(set-in-all-vimp-states-but-insert "W" 'lalopmak-vimp-ace-jump-char-to-mode)
 
 ;;old find char/reverse for use in macros
 (set-in-all-vimp-states-but-insert "\M-f" 'vimp-find-char)
