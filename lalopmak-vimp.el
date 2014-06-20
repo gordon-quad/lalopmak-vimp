@@ -29,9 +29,8 @@
 ;;; Up/down/left/right
 (set-in-all-vimp-states-but-insert "u" 'vimp-previous-line)
 (set-in-all-vimp-states-but-insert "e" 'vimp-next-line)
-(set-in-all-vimp-states-but-insert "n" 'lalopmak-vimp-backward-char)
-(set-in-all-vimp-states-but-insert "i" 'lalopmak-vimp-forward-char)
-
+(set-in-all-vimp-states-but-insert "n" 'vimp-insert)
+(set-in-all-vimp-states-but-insert "i" 'vimp-append)
 ;;; Beginning/end of line (home/end)
 (set-in-all-vimp-states-but-insert "L" 'back-to-indentation)
 (set-in-all-vimp-states-but-insert "Y" 'vimp-end-of-line)
@@ -279,19 +278,19 @@
 
 
 ;; Insert / inner object pending state
-(set-in-all-vimp-states-but-insert "r" 'vimp-insert)
+;; (set-in-all-vimp-states-but-insert "r" 'vimp-insert)
 (set-in-all-vimp-states-but-insert "R" 'vimp-insert-line)
 (lalopmak-vimp-define-key vimp-operator-state-map "r" vimp-inner-text-objects-map)
 (lalopmak-vimp-define-key vimp-visual-state-map "r" vimp-inner-text-objects-map)
 
 ;;Append / outer object pending state
-(set-in-all-vimp-states-but-insert "s" 'vimp-append)
+;; (set-in-all-vimp-states-but-insert "s" 'vimp-append)
 ;; (set-in-all-vimp-states-but-insert "S" 'vimp-append-line)
 (lalopmak-vimp-define-key vimp-operator-state-map "s" vimp-outer-text-objects-map)
 (lalopmak-vimp-define-key vimp-visual-state-map "s" vimp-outer-text-objects-map)
 
 ;; (lalopmak-vimp-define-key vimp-visual-state-map "R" 'vimp-insert)
-(lalopmak-vimp-define-key vimp-visual-state-map "S" 'vimp-append)
+;; (lalopmak-vimp-define-key vimp-visual-state-map "S" 'vimp-append)
 
 ;;Change
 (set-in-all-vimp-states-but-insert "T" 'vimp-change-line)
