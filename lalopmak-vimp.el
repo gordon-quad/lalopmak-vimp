@@ -56,10 +56,15 @@
 (set-in-all-vimp-states-but-insert "\M-i" 'lalopmak-vimp-forward-WORD-end)
 (set-in-all-vimp-states-but-insert "\M-n" 'lalopmak-vimp-backward-WORD-begin)
 
+(set-in-all-vimp-states-but-insert "I" 'vimp-append-line)
+(set-in-all-vimp-states-but-insert "R" 'vimp-insert-line)
 
 ;;Ace jump
 (set-in-all-vimp-states-but-insert "l" 'lalopmak-vimp-narrowed-ace-jump-char-mode)
 (set-in-all-vimp-states-but-insert "\M-l" 'lalopmak-vimp-ace-jump-char-mode)
+
+(set-in-all-vimp-states-but-insert "f" 'helm-semantic-or-imenu)
+
 ;; So far I find that I only need these two, but the char-to-mode one looks like it
 ;; could be useful as a motion, because it stops one char short of the character.
 ;; (set-in-all-vimp-states-but-insert "F" 'lalopmak-vimp-narrowed-ace-jump-char-to-mode)
@@ -281,11 +286,11 @@
 
 ;;Append / outer object pending state
 (set-in-all-vimp-states-but-insert "s" 'vimp-append)
-(set-in-all-vimp-states-but-insert "S" 'vimp-append-line)
+;; (set-in-all-vimp-states-but-insert "S" 'vimp-append-line)
 (lalopmak-vimp-define-key vimp-operator-state-map "s" vimp-outer-text-objects-map)
 (lalopmak-vimp-define-key vimp-visual-state-map "s" vimp-outer-text-objects-map)
 
-(lalopmak-vimp-define-key vimp-visual-state-map "R" 'vimp-insert)
+;; (lalopmak-vimp-define-key vimp-visual-state-map "R" 'vimp-insert)
 (lalopmak-vimp-define-key vimp-visual-state-map "S" 'vimp-append)
 
 ;;Change
