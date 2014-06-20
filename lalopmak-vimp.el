@@ -44,7 +44,6 @@
   "Scrolls down 10 lines"
   (next-line 10))
 
-
 ;;; Prev/next buffer
 (set-in-all-vimp-states-but-insert "\M-u" 'lalopmak-vimp-scroll-page-up)
 (set-in-all-vimp-states-but-insert "\M-e" 'lalopmak-vimp-scroll-page-down)
@@ -356,12 +355,12 @@
 (set-in-all-vimp-states-but-insert "Z" 'vimp-open-above)
 
 ;;M-[direction] to paste in that direction
-(set-in-all-vimp-states-but-insert "\M-u" 'lalopmak-vimp-paste-above-then-normal)
-(set-in-all-vimp-states-but-insert "\M-e" 'lalopmak-vimp-paste-below-then-normal)
-(lalopmak-vimp-define-key vimp-insert-state-map "\M-u" 'lalopmak-vimp-paste-above)
-(lalopmak-vimp-define-key vimp-insert-state-map "\M-e" 'lalopmak-vimp-paste-below)
-(set-in-all-vimp-states "\M-n" 'lalopmak-vimp-paste-at-bol)
-(set-in-all-vimp-states "\M-i" 'lalopmak-vimp-paste-at-eol)
+;; (set-in-all-vimp-states-but-insert "\M-u" 'lalopmak-vimp-paste-above-then-normal)
+;; (set-in-all-vimp-states-but-insert "\M-e" 'lalopmak-vimp-paste-below-then-normal)
+;; (lalopmak-vimp-define-key vimp-insert-state-map "\M-u" 'lalopmak-vimp-paste-above)
+;; (lalopmak-vimp-define-key vimp-insert-state-map "\M-e" 'lalopmak-vimp-paste-below)
+;; (set-in-all-vimp-states "\M-n" 'lalopmak-vimp-paste-at-bol)
+;; (set-in-all-vimp-states "\M-i" 'lalopmak-vimp-paste-at-eol)
 
 
 
