@@ -25,7 +25,7 @@
 (require 'lalopmak-layouts)
 (require 'lalopmak-jump)
 
-(defvar lalopmak-vimp-lisp-mode-hook-and-map-symbols '((nil (emacs-lisp-mode-map lisp-mode-map lisp-interaction-mode-map hy-mode-map))
+(defvar lalopmak-vimp-lisp-mode-hook-and-map-symbols '((nil (emacs-lisp-mode-map lisp-mode-map lisp-interaction-mode-map))
                                                        (clojure-mode-hook (clojure-mode-map)))
   "List with entries of the form (hook (mode-map1 mode-map2 ...)) where hook are lisp-mode hooks and the mode-maps
 are those to add a keybinding to upon hook being triggered.")
