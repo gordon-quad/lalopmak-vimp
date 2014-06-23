@@ -52,8 +52,8 @@
 ;; (set-in-all-vimp-states-but-insert "\C-i" 'lalopmak-vimp-forward-word-end)
 
 ;;; WORD forward/backward
-(set-in-all-vimp-states-but-insert "\M-i" 'lalopmak-vimp-forward-WORD-end)
-(set-in-all-vimp-states-but-insert "\M-n" 'lalopmak-vimp-backward-WORD-begin)
+(set-in-all-vimp-states-but-insert "\M-i" 'lalopmak-vimp-forward-word-end)
+(set-in-all-vimp-states-but-insert "\M-n" 'lalopmak-vimp-backward-word-begin)
 
 (set-in-all-vimp-states-but-insert "I" 'vimp-append-line)
 (set-in-all-vimp-states-but-insert "R" 'vimp-insert-line)
