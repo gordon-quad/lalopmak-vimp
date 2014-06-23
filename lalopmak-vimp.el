@@ -29,8 +29,8 @@
 ;;; Up/down/left/right
 (set-in-all-vimp-states-but-insert "u" 'vimp-previous-line)
 (set-in-all-vimp-states-but-insert "e" 'vimp-next-line)
-(set-in-all-vimp-states-but-insert "n" 'vimp-insert)
-(set-in-all-vimp-states-but-insert "i" 'vimp-append)
+(set-in-all-vimp-states-but-insert "n" 'vimp-backward-char)
+(set-in-all-vimp-states-but-insert "i" 'vimp-forward-char)
 ;;; Beginning/end of line (home/end)
 (set-in-all-vimp-states-but-insert "L" 'back-to-indentation)
 (set-in-all-vimp-states-but-insert "Y" 'vimp-end-of-line)
