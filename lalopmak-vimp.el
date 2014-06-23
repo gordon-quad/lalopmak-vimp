@@ -107,18 +107,6 @@
   (lalopmak-vimp-define-key vimp-normal-state-map "\C-p" 'undo-tree-redo))
 ;; =====
 
-;; Experimental swapped paste p/undo v
-;; =====
-;; (set-in-all-vimp-states-but-insert "P" 'vimp-paste-before)
-;; (set-in-all-vimp-states-but-insert "p" 'vimp-paste-after)
-;; (set-in-all-vimp-states-but-insert "\C-p" 'vimp-paste-pop)
-
-;; ;;; Undo/redo
-;; (lalopmak-vimp-define-key vimp-normal-state-map "v" 'undo)
-;; (when (fboundp 'undo-tree-undo)
-;;   (lalopmak-vimp-define-key vimp-normal-state-map "v" 'undo-tree-undo)
-;;   (lalopmak-vimp-define-key vimp-normal-state-map "\C-v" 'undo-tree-redo))
-;; =====
 
 
 
