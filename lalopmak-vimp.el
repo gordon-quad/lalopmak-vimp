@@ -61,7 +61,7 @@
 
 ;;Ace jump
 (set-in-all-vimp-states-but-insert "l" 'lalopmak-vimp-ace-jump-char-mode)
-;; (set-in-all-vimp-states-but-insert "\M-l" 'lalopmak-vimp-ace-jump-char-mode)
+(set-in-all-vimp-states-but-insert "\M-l" 'vimp-find-char-to)
 
 (set-in-all-vimp-states-but-insert "f" 'helm-semantic-or-imenu)
 
