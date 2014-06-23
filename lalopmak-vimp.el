@@ -25,15 +25,16 @@
 ;;;;;;;;;;;;;;;;; Bindings ;;;;;;;;;;;;;;;;;;;
 
 
-
 ;;; Up/down/left/right
 (set-in-all-vimp-states-but-insert "u" 'vimp-previous-line)
 (set-in-all-vimp-states-but-insert "e" 'vimp-next-line)
 (set-in-all-vimp-states-but-insert "n" 'vimp-backward-char)
 (set-in-all-vimp-states-but-insert "i" 'vimp-forward-char)
 ;;; Beginning/end of line (home/end)
-(set-in-all-vimp-states-but-insert "L" 'back-to-indentation)
-(set-in-all-vimp-states-but-insert "Y" 'vimp-end-of-line)
+(set-in-all-vimp-states-but-insert "N" 'vimp-insert-line)
+(set-in-all-vimp-states-but-insert "I" 'vimp-append-line)
+
+(set-in-all-vimp-states-but-insert "y" 'vimp-insert)
 
 (vimp-define-motion lalopmak-vimp-scroll-page-up (count)
   "Scrolls page up 10 lines"
@@ -111,8 +112,8 @@
 
 
 ;;; Cursor position jumplist
-(set-in-all-vimp-states-but-insert "N" 'vimp-jump-backward)
-(set-in-all-vimp-states-but-insert "I" 'vimp-jump-forward)
+;; (set-in-all-vimp-states-but-insert "N" 'vimp-jump-backward)
+;; (set-in-all-vimp-states-but-insert "I" 'vimp-jump-forward)
 
 
 ;;; Move cursor to top/bottom of screen
