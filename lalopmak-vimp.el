@@ -2,8 +2,11 @@
 ;;  Colemak Evil: A set of optimized Vim-like key bindings for Emacs.
 ;;  Copyright (C) 2013 Patrick Brinich-Langlois
 
-;;  lalopmak-vimp: A more geometric fork.
+;;  lalopmak-evil: A more geometric fork.
 ;;  Copyright (C) 2013
+
+;;  lalopmak-vimp: Some additions by Tim
+;;  Copyright (C) 2014
 
 ;;  This program is free software: you can redistribute it and/or modify
 ;;  it under the terms of the GNU General Public License as published by
@@ -35,6 +38,7 @@
 (set-in-all-vimp-states-but-insert "I" 'vimp-append-line)
 
 (set-in-all-vimp-states-but-insert "y" 'vimp-insert)
+(set-in-all-vimp-states-but-insert "\M-y" 'vimp-append)
 
 (vimp-define-motion lalopmak-vimp-scroll-page-up (count)
   "Scrolls page up 10 lines"
