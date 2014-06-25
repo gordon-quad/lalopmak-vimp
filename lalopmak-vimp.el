@@ -34,11 +34,14 @@
 (set-in-all-vimp-states-but-insert "n" 'vimp-backward-char)
 (set-in-all-vimp-states-but-insert "i" 'vimp-forward-char)
 ;;; Beginning/end of line (home/end)
-(set-in-all-vimp-states-but-insert "N" 'vimp-insert-line)
-(set-in-all-vimp-states-but-insert "I" 'vimp-append-line)
-
 (set-in-all-vimp-states-but-insert "y" 'vimp-insert)
 (set-in-all-vimp-states-but-insert "\M-y" 'vimp-append)
+(set-in-all-vimp-states-but-insert "Y" 'vimp-insert-line)
+(set-in-all-vimp-states-but-insert "\M-Y" 'vimp-append-line)
+
+
+(set-in-all-vimp-states-but-insert "\M-r" 'vimp-jump-backward)
+(set-in-all-vimp-states-but-insert "\M-s" 'vimp-jump-forward)
 
 (vimp-define-motion lalopmak-vimp-scroll-page-up (count)
   "Scrolls page up 10 lines"
@@ -62,6 +65,7 @@
 
 (set-in-all-vimp-states-but-insert "I" 'vimp-append-line)
 (set-in-all-vimp-states-but-insert "R" 'vimp-insert-line)
+(set-in-all-vimp-states-but-insert ";" 'vimp-repeat-find-char)
 
 ;;Ace jump
 (set-in-all-vimp-states-but-insert "l" 'lalopmak-vimp-ace-jump-char-mode)
