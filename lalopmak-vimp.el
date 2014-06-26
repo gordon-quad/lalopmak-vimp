@@ -72,6 +72,7 @@
 (set-in-all-vimp-states-but-insert "\M-l" 'vimp-find-char-to)
 
 (set-in-all-vimp-states-but-insert "f" 'helm-semantic-or-imenu)
+(set-in-all-vimp-states-but-insert "\M-f" 'helm-etags-select)
 
 ;; So far I find that I only need these two, but the char-to-mode one looks like it
 ;; could be useful as a motion, because it stops one char short of the character.
