@@ -79,6 +79,8 @@
 (winner-mode)
 (set-in-all-vimp-states-but-insert "\M-]" 'winner-redo)
 (set-in-all-vimp-states-but-insert "\M-[" 'winner-undo)
+(set-in-all-vimp-states-but-insert (kbd "C-c <right>") 'windmove-right)
+(set-in-all-vimp-states-but-insert (kbd "C-c <left>") 'windmove-left)
 
 
 ;; So far I find that I only need these two, but the char-to-mode one looks like it
