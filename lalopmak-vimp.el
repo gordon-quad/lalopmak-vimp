@@ -61,7 +61,9 @@
 
 ;;; WORD forward/backward
 (set-in-all-vimp-states-but-insert "\M-i" 'lalopmak-vimp-forward-word-end)
+(set-in-all-vimp-states-but-insert "\M-I" 'lalopmak-vimp-forward-WORD-end)
 (set-in-all-vimp-states-but-insert "\M-n" 'lalopmak-vimp-backward-word-begin)
+(set-in-all-vimp-states-but-insert "\M-N" 'lalopmak-vimp-backward-WORD-begin)
 
 (set-in-all-vimp-states-but-insert "I" 'vimp-append-line)
 (set-in-all-vimp-states-but-insert "R" 'vimp-insert-line)
@@ -73,6 +75,11 @@
 
 (set-in-all-vimp-states-but-insert "f" 'helm-semantic-or-imenu)
 (set-in-all-vimp-states-but-insert "\M-f" 'helm-etags-select)
+
+(winner-mode)
+(set-in-all-vimp-states-but-insert "\M-]" 'winner-redo)
+(set-in-all-vimp-states-but-insert "\M-[" 'winner-undo)
+
 
 ;; So far I find that I only need these two, but the char-to-mode one looks like it
 ;; could be useful as a motion, because it stops one char short of the character.
