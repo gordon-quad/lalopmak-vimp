@@ -23,6 +23,7 @@
 
 
 (require 'lalopmak-vimp-base)
+(load-file "lalopmak-camel-case.el")
 
 
 ;;;;;;;;;;;;;;;;; Bindings ;;;;;;;;;;;;;;;;;;;
@@ -55,15 +56,12 @@
 (set-in-all-vimp-states-but-insert "\M-u" 'lalopmak-vimp-scroll-page-up)
 (set-in-all-vimp-states-but-insert "\M-e" 'lalopmak-vimp-scroll-page-down)
 
-;;; Words forward/backward
-;; (set-in-all-vimp-states-but-insert "\C-n" 'lalopmak-vimp-backward-word-begin)
-;; (set-in-all-vimp-states-but-insert "\C-i" 'lalopmak-vimp-forward-word-end)
 
 ;;; WORD forward/backward
-(set-in-all-vimp-states-but-insert "\M-i" 'lalopmak-vimp-forward-word-end)
-(set-in-all-vimp-states-but-insert "\M-I" 'lalopmak-vimp-forward-WORD-end)
-(set-in-all-vimp-states-but-insert "\M-n" 'lalopmak-vimp-backward-word-begin)
-(set-in-all-vimp-states-but-insert "\M-N" 'lalopmak-vimp-backward-WORD-begin)
+(set-in-all-vimp-states-but-insert "\M-i" 'vimp-forward-little-word-end)
+(set-in-all-vimp-states-but-insert "\M-I" 'vimp-forward-WORD-end)
+(set-in-all-vimp-states-but-insert "\M-n" 'vimp-backward-little-word-begin)
+(set-in-all-vimp-states-but-insert "\M-N" 'vimp-backward-WORD-begin)
 
 (set-in-all-vimp-states-but-insert "I" 'vimp-append-line)
 (set-in-all-vimp-states-but-insert "R" 'vimp-insert-line)
@@ -78,11 +76,11 @@
 
 (winner-mode)
 
-
-;; So far I find that I only need these two, but the char-to-mode one looks like it
-;; could be useful as a motion, because it stops one char short of the character.
-;; (set-in-all-vimp-states-but-insert "F" 'lalopmak-vimp-narrowed-ace-jump-char-to-mode)
-;; (set-in-all-vimp-states-but-insert "W" 'lalopmak-vimp-ace-jump-char-to-mode)
+(vimp-define-motion go-to-next-cap (count)
+  "Move forward to the next capital letter in the line"
+  (vimp-open-below 1)
+  ;; (newline count) ;;TODO count indicates number of lines until the paste
+  (vimp-paste-after 1))
 
 
 ;;directional object maps
@@ -166,34 +164,6 @@
 (vimp-define-key 'visual surround-mode-map "z" 'surround-region)
 (vimp-define-key 'visual surround-mode-map "Z" 'Surround-region)
 
-;;; visual Block mode
-;; Since the system clipboard is accessible by Emacs through the
-;; regular paste command (v), a separate C-v mapping isn't needed.
-;; (lalopmak-vimp-define-key vimp-motion-state-map "\C-b" 'vimp-visual-block)
-
-;;; Allow switching from visual line to visual block mode
-;; not implemented
-
-;;; Visual mode with mouse
-;; not implemented
-;;; Insert literal
-;; not implemented
-
-;;; GUI search
-;; not implemented
-
-;;; Redraw screen
-;; not implemented
-
-;;; Tabs
-;; Who needs tabs? Use iswitchb instead. Put (iswitchb-mode 1) in your
-;; .emacs and use C-x b to search for the buffer you want. C-s and C-r
-;; rotate through the listed buffers
-
-;;; New/close/save
-;; these might conflict with emacs mappings
-
-
 (set-in-all-vimp-states-but-insert "J" 'vimp-join)
 
 
@@ -249,13 +219,6 @@
 ;;; Search
 (lalopmak-vimp-define-key vimp-motion-state-map "k" 'vimp-search-next)
 (lalopmak-vimp-define-key vimp-motion-state-map "K" 'vimp-search-previous)
-
-;;; Folding
-;; (lalopmak-vimp-define-key vimp-normal-state-map "zo" 'vimp-open-fold)
-;; (lalopmak-vimp-define-key vimp-normal-state-map "zc" 'vimp-close-fold)
-;; (lalopmak-vimp-define-key vimp-normal-state-map "za" 'vimp-toggle-fold)
-;; (lalopmak-vimp-define-key vimp-normal-state-map "zr" 'vimp-open-folds)
-;; (lalopmak-vimp-define-key vimp-normal-state-map "zm" 'vimp-close-folds)
 
 ;;; Window handling
 ;; C-w (not C-r as in Shai's mappings) prefixes window commands
@@ -361,15 +324,6 @@
 (set-in-all-vimp-states-but-insert "z" 'vimp-open-below)
 (set-in-all-vimp-states-but-insert "Z" 'vimp-open-above)
 
-;;M-[direction] to paste in that direction
-;; (set-in-all-vimp-states-but-insert "\M-u" 'lalopmak-vimp-paste-above-then-normal)
-;; (set-in-all-vimp-states-but-insert "\M-e" 'lalopmak-vimp-paste-below-then-normal)
-;; (lalopmak-vimp-define-key vimp-insert-state-map "\M-u" 'lalopmak-vimp-paste-above)
-;; (lalopmak-vimp-define-key vimp-insert-state-map "\M-e" 'lalopmak-vimp-paste-below)
-;; (set-in-all-vimp-states "\M-n" 'lalopmak-vimp-paste-at-bol)
-;; (set-in-all-vimp-states "\M-i" 'lalopmak-vimp-paste-at-eol)
-
-
 
 (lalopmak-vimp-define-key vimp-motion-state-map "0" 'vimp-beginning-of-line)
 
@@ -405,25 +359,10 @@
 (vimp-ex-define-cmd "mnemonic" 'lalopmak-vimp-mnemonic-hints)
 
 
-
-;;Experiment: swaps o and :
-;; (set-in-all-vimp-states-but-insert ";" 'lalopmak-vimp-goto-line-if-count-else-open-below)
-;; (set-in-all-vimp-states-but-insert ":" 'vimp-open-above)
-;; (set-in-all-vimp-states-but-insert "o" 'vimp-ex)
-;; (set-in-all-vimp-states-but-insert "O" 'vimp-ex)
-
-;; (vimp-define-key 'normal vimp-paredit-mode-map
-;;   (kbd "d") 'vimp-paredit-delete
-;;   (kbd "t") 'vimp-paredit-change
-;;   (kbd "c") 'vimp-paredit-yank
-;;   (kbd "D") 'vimp-paredit-delete-line
-;;   (kbd "T") 'vimp-paredit-change-line
-;;   (kbd "C") 'vimp-paredit-yank-line
-;;   (kbd "x") 'paredit-backward-delete
-;;   (kbd "X") 'paredit-forward-delete)
-
 ;;experiment
 (setq vimp-cross-lines t)
+
+
 
 
 
