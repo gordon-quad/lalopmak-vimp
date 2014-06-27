@@ -307,7 +307,7 @@
 ;; (set-in-all-vimp-states-but-insert "\C-p" 'vimp-jump-forward)
 
 ;;old find char/reverse for use in macros
-(set-in-all-vimp-states-but-insert "\M-f" 'vimp-find-char)
+;; (set-in-all-vimp-states-but-insert "\M-f" 'vimp-find-char)
 (set-in-all-vimp-states-but-insert "\M-w" 'vimp-find-char-backward)
 (set-in-all-vimp-states-but-insert "\M-t" 'vimp-repeat-find-char)
 
