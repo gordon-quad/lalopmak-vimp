@@ -79,8 +79,8 @@
 
 (set-in-all-vimp-states-but-insert "\M-." 'vimp-jump-backward)
 (set-in-all-vimp-states-but-insert "\M-," 'vimp-jump-forward)
-(set-in-all-vimp-states-but-insert "\M->" 'vimp-jump-backward)
-(set-in-all-vimp-states-but-insert "\M-<" 'vimp-jump-forward)
+(set-in-all-vimp-states-but-insert "\M->" 'next-buffer)
+(set-in-all-vimp-states-but-insert "\M-<" 'previous-buffer)
 
 
 ;;directional object maps
@@ -246,8 +246,8 @@
 ;; Insert / inner object pending state
 ;; (set-in-all-vimp-states-but-insert "r" 'vimp-insert)
 (set-in-all-vimp-states-but-insert "R" 'vimp-insert-line)
-(lalopmak-vimp-define-key vimp-operator-state-map "i" vimp-inner-text-objects-map)
-(lalopmak-vimp-define-key vimp-visual-state-map "i" vimp-inner-text-objects-map)
+(lalopmak-vimp-define-key vimp-operator-state-map "y" vimp-inner-text-objects-map)
+(lalopmak-vimp-define-key vimp-visual-state-map "y" vimp-inner-text-objects-map)
 
 ;;Append / outer object pending state
 ;; (set-in-all-vimp-states-but-insert "s" 'vimp-append)
