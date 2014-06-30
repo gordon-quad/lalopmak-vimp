@@ -59,7 +59,7 @@
 
 ;;; WORD forward/backward
 (set-in-all-vimp-states-but-insert "\M-i" 'vimp-forward-little-word-end)
-(set-in-all-vimp-states-but-insert "\M-I" 'vimp-forward-WORD-end)
+(set-in-all-vimp-states-but-insert "\M-I" 'vimp-forward-WORD-begin)
 (set-in-all-vimp-states-but-insert "\M-n" 'vimp-backward-little-word-begin)
 (set-in-all-vimp-states-but-insert "\M-N" 'vimp-backward-WORD-begin)
 
@@ -75,12 +75,6 @@
 (set-in-all-vimp-states-but-insert "\M-f" 'helm-etags-select)
 
 (winner-mode)
-
-(vimp-define-motion go-to-next-cap (count)
-  "Move forward to the next capital letter in the line"
-  (vimp-open-below 1)
-  ;; (newline count) ;;TODO count indicates number of lines until the paste
-  (vimp-paste-after 1))
 
 
 ;;directional object maps
