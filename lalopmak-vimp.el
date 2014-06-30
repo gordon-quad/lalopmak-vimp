@@ -246,14 +246,14 @@
 ;; Insert / inner object pending state
 ;; (set-in-all-vimp-states-but-insert "r" 'vimp-insert)
 (set-in-all-vimp-states-but-insert "R" 'vimp-insert-line)
-(lalopmak-vimp-define-key vimp-operator-state-map "r" vimp-inner-text-objects-map)
-(lalopmak-vimp-define-key vimp-visual-state-map "r" vimp-inner-text-objects-map)
+(lalopmak-vimp-define-key vimp-operator-state-map "i" vimp-inner-text-objects-map)
+(lalopmak-vimp-define-key vimp-visual-state-map "i" vimp-inner-text-objects-map)
 
 ;;Append / outer object pending state
 ;; (set-in-all-vimp-states-but-insert "s" 'vimp-append)
 ;; (set-in-all-vimp-states-but-insert "S" 'vimp-append-line)
-(lalopmak-vimp-define-key vimp-operator-state-map "s" vimp-outer-text-objects-map)
-(lalopmak-vimp-define-key vimp-visual-state-map "s" vimp-outer-text-objects-map)
+(lalopmak-vimp-define-key vimp-operator-state-map "a" vimp-outer-text-objects-map)
+(lalopmak-vimp-define-key vimp-visual-state-map "a" vimp-outer-text-objects-map)
 
 ;; (lalopmak-vimp-define-key vimp-visual-state-map "R" 'vimp-insert)
 ;; (lalopmak-vimp-define-key vimp-visual-state-map "S" 'vimp-append)
