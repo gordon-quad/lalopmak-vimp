@@ -23,7 +23,7 @@
 
 
 (require 'lalopmak-vimp-base)
-(load-file "lalopmak-camel-case.el")
+(require 'lalopmak-camel-case)
 
 
 ;;;;;;;;;;;;;;;;; Bindings ;;;;;;;;;;;;;;;;;;;
@@ -75,6 +75,12 @@
 (set-in-all-vimp-states-but-insert "\M-f" 'helm-etags-select)
 
 (winner-mode)
+
+
+(set-in-all-vimp-states-but-insert "\M-." 'vimp-jump-backward)
+(set-in-all-vimp-states-but-insert "\M-," 'vimp-jump-forward)
+(set-in-all-vimp-states-but-insert "\M->" 'vimp-jump-backward)
+(set-in-all-vimp-states-but-insert "\M-<" 'vimp-jump-forward)
 
 
 ;;directional object maps

@@ -88,3 +88,5 @@ list of categories."
 (vimp-define-text-object vimp-inner-little-word (count &optional beg end type)
   "Select inner little word."
   (vimp-inner-object-range count beg end type #'vimp-move-little-word))
+
+(provide 'lalopmak-camel-case)
