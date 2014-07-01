@@ -79,8 +79,11 @@
 
 (set-in-all-vimp-states-but-insert "\M-." 'vimp-jump-backward)
 (set-in-all-vimp-states-but-insert "\M-," 'vimp-jump-forward)
+(set-in-all-vimp-states-but-insert " " 'vimp-jump-backward)
+(set-in-all-vimp-states-but-insert "ซ" 'vimp-jump-forward)
 (set-in-all-vimp-states-but-insert "\M->" 'next-buffer)
 (set-in-all-vimp-states-but-insert "\M-<" 'previous-buffer)
+
 
 
 ;;directional object maps
