@@ -83,7 +83,8 @@
 (set-in-all-vimp-states-but-insert "ซ" 'vimp-jump-forward)
 (set-in-all-vimp-states-but-insert "\M->" 'next-buffer)
 (set-in-all-vimp-states-but-insert "\M-<" 'previous-buffer)
-
+(set-in-all-vimp-states-but-insert (kbd "<RET>") 'previous-buffer)
+(set-in-all-vimp-states-but-insert "ร" 'next-buffer)
 
 
 ;;directional object maps
