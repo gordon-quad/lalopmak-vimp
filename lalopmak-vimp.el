@@ -159,14 +159,6 @@
 ;; (define-key vimp-motion-state-map " \\" 'vimp-scroll-line-to-center)
 ;; (define-key vimp-motion-state-map " !" 'vimp-scroll-line-to-top)
 
-;;;vimp-surround
-
-
-(setcdr surround-mode-map nil) ;removes previous "s" mappings
-
-(vimp-define-key 'operator surround-mode-map "z" 'surround-edit)
-(vimp-define-key 'visual surround-mode-map "z" 'surround-region)
-(vimp-define-key 'visual surround-mode-map "Z" 'Surround-region)
 
 (set-in-all-vimp-states-but-insert "J" 'vimp-join)
 
