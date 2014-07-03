@@ -86,6 +86,9 @@
 (set-in-all-vimp-states-but-insert (kbd "<RET>") 'previous-buffer)
 (set-in-all-vimp-states-but-insert "ร" 'next-buffer)
 
+; Marks
+(lalopmak-vimp-define-key vimp-normal-state-map "M" 'vimp-set-marker)
+(set-in-all-vimp-states-but-insert "j" 'vimp-goto-mark)
 
 ;;directional object maps
 (lalopmak-vimp-define-key vimp-inner-text-objects-map "l" 'vimp-inner-word)
@@ -188,8 +191,6 @@
 (lalopmak-vimp-define-key vimp-normal-state-map "'" 'vimp-execute-macro)
 (lalopmak-vimp-define-key vimp-normal-state-map "m" 'vimp-record-macro)
 ;; (lalopmak-vimp-define-key vimp-normal-state-map "\"" 'vimp-execute-macro)
-
-(lalopmak-vimp-define-key vimp-normal-state-map "M" 'vimp-set-marker)
 
 
 (define-key vimp-motion-state-map (kbd "C-'") 'vimp-goto-mark-line)
