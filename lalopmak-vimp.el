@@ -68,9 +68,9 @@
 
 ;;Ace jump
 (set-in-all-vimp-states-but-insert "L" 'lalopmak-vimp-ace-jump-char-mode)
-(set-in-all-vimp-states-but-insert "\M-l" 'lalopmak-vimp-narrowed-ace-jump-char-mode)
+(set-in-all-vimp-states-but-insert "l" 'lalopmak-vimp-narrowed-ace-jump-char-mode)
 (setq ace-jump-word-mode-use-query-char nil)
-(set-in-all-vimp-states-but-insert "l" 'ace-jump-word-mode)
+(set-in-all-vimp-states-but-insert "\M-l" 'ace-jump-word-mode)
 
 
 (set-in-all-vimp-states-but-insert "f" 'helm-semantic-or-imenu)
