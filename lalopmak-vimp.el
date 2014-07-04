@@ -92,10 +92,7 @@
 
 ; Marks
 (lalopmak-vimp-define-key vimp-normal-state-map "M" 'vimp-set-marker)
-(set-in-all-vimp-states-but-insert "j" (lambda ()
-                                           (interactive)
-                                           (vimp-goto-mark)
-                                           (recenter)))
+(set-in-all-vimp-states-but-insert "j" 'vimp-goto-mark)
 
 
 ;; Dired up and down
