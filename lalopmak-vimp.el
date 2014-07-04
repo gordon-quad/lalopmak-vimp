@@ -67,8 +67,11 @@
 (set-in-all-vimp-states-but-insert ";" 'vimp-repeat-find-char)
 
 ;;Ace jump
-(set-in-all-vimp-states-but-insert "l" 'lalopmak-vimp-ace-jump-char-mode)
+(set-in-all-vimp-states-but-insert "L" 'lalopmak-vimp-ace-jump-char-mode)
 (set-in-all-vimp-states-but-insert "\M-l" 'vimp-find-char-to)
+(setq ace-jump-word-mode-use-query-char nil)
+(set-in-all-vimp-states-but-insert "l" 'ace-jump-word-mode)
+
 
 (set-in-all-vimp-states-but-insert "f" 'helm-semantic-or-imenu)
 (set-in-all-vimp-states-but-insert "\M-f" 'helm-etags-select)
@@ -100,14 +103,14 @@
 (define-key dired-mode-map "u" 'previous-line)
 
 ;;directional object maps
-(lalopmak-vimp-define-key vimp-inner-text-objects-map "l" 'vimp-inner-word)
-(lalopmak-vimp-define-key vimp-outer-text-objects-map "l" 'vimp-a-word)
-(lalopmak-vimp-define-key vimp-inner-text-objects-map "y" 'vimp-inner-WORD)
-(lalopmak-vimp-define-key vimp-outer-text-objects-map "y" 'vimp-a-WORD)
-(lalopmak-vimp-define-key vimp-inner-text-objects-map "e" 'vimp-inner-sentence)
-(lalopmak-vimp-define-key vimp-outer-text-objects-map "e" 'vimp-a-sentence)
-(lalopmak-vimp-define-key vimp-inner-text-objects-map "u" 'vimp-inner-paragraph)
-(lalopmak-vimp-define-key vimp-outer-text-objects-map "u" 'vimp-a-paragraph)
+(lalopmak-vimp-define-key vimp-inner-text-objects-map "n" 'vimp-inner-word)
+(lalopmak-vimp-define-key vimp-outer-text-objects-map "i" 'vimp-a-word)
+(lalopmak-vimp-define-key vimp-inner-text-objects-map "e" 'vimp-inner-WORD)
+(lalopmak-vimp-define-key vimp-outer-text-objects-map "u" 'vimp-a-WORD)
+(lalopmak-vimp-define-key vimp-inner-text-objects-map "s" 'vimp-inner-sentence)
+(lalopmak-vimp-define-key vimp-outer-text-objects-map "s" 'vimp-a-sentence)
+(lalopmak-vimp-define-key vimp-inner-text-objects-map "p" 'vimp-inner-paragraph)
+(lalopmak-vimp-define-key vimp-outer-text-objects-map "p" 'vimp-a-paragraph)
 
 ;; Not sure what this is, think it's an emacs definition.  Originally assigned to o
 (lalopmak-vimp-define-key vimp-inner-text-objects-map "n" 'vimp-inner-symbol)
