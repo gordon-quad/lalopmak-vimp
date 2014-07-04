@@ -1,4 +1,3 @@
-
 ;;  Colemak Evil: A set of optimized Vim-like key bindings for Emacs.
 ;;  Copyright (C) 2013 Patrick Brinich-Langlois
 
@@ -75,6 +74,8 @@
 (set-in-all-vimp-states-but-insert "\M-f" 'helm-etags-select)
 
 (winner-mode)
+(global-set-key "\M-m" 'window-configuration-to-register)
+(global-set-key "\M-j" 'jump-to-register)
 
 
 (set-in-all-vimp-states-but-insert "\M-." 'vimp-jump-backward)
@@ -88,7 +89,10 @@
 
 ; Marks
 (lalopmak-vimp-define-key vimp-normal-state-map "M" 'vimp-set-marker)
-(set-in-all-vimp-states-but-insert "j" 'vimp-goto-mark)
+(set-in-all-vimp-states-but-insert "j" (lambda ()
+                                           (interactive)
+                                           (vimp-goto-mark)
+                                           (recenter))
 
 ;;directional object maps
 (lalopmak-vimp-define-key vimp-inner-text-objects-map "l" 'vimp-inner-word)
