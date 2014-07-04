@@ -94,6 +94,11 @@
                                            (vimp-goto-mark)
                                            (recenter)))
 
+
+;; Dired up and down
+(define-key dired-mode-map "e" 'next-line)
+(define-key dired-mode-map "u" 'previous-line)
+
 ;;directional object maps
 (lalopmak-vimp-define-key vimp-inner-text-objects-map "l" 'vimp-inner-word)
 (lalopmak-vimp-define-key vimp-outer-text-objects-map "l" 'vimp-a-word)
