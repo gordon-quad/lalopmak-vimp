@@ -92,7 +92,7 @@
 (set-in-all-vimp-states-but-insert "j" (lambda ()
                                            (interactive)
                                            (vimp-goto-mark)
-                                           (recenter))
+                                           (recenter)))
 
 ;;directional object maps
 (lalopmak-vimp-define-key vimp-inner-text-objects-map "l" 'vimp-inner-word)
