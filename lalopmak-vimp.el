@@ -67,10 +67,10 @@
 (set-in-all-vimp-states-but-insert ";" 'vimp-repeat-find-char)
 
 ;;Ace jump
-(set-in-all-vimp-states-but-insert "L" 'lalopmak-vimp-ace-jump-char-mode)
+(set-in-all-vimp-states-but-insert "\M-l" 'lalopmak-vimp-narrowed-ace-jump-char-to-mode)
 (set-in-all-vimp-states-but-insert "l" 'lalopmak-vimp-narrowed-ace-jump-char-mode)
 (setq ace-jump-word-mode-use-query-char nil)
-(set-in-all-vimp-states-but-insert "\M-l" 'ace-jump-word-mode)
+(set-in-all-vimp-states-but-insert "L" 'ace-jump-word-mode)
 
 
 (set-in-all-vimp-states-but-insert "f" 'helm-semantic-or-imenu)
@@ -98,6 +98,18 @@
 ;; Dired up and down
 (define-key dired-mode-map "e" 'next-line)
 (define-key dired-mode-map "u" 'previous-line)
+
+
+;; Minibuffer
+(define-key vimp-ex-completion-map "\M-e" 'next-complete-history-element)
+(define-key vimp-ex-completion-map  "\M-u" 'previous-complete-history-element)
+(define-key vimp-ex-completion-map "\M-i" 'forward-word)
+(define-key vimp-ex-completion-map  "\M-n" 'backward-word)
+
+; ido
+(define-key ido-completion-map "\M-i" 'ido-next-match)
+(define-key vimp-ex-completion-map  "\M-n" 'ockward-word)
+
 
 ;;directional object maps
 (lalopmak-vimp-define-key vimp-inner-text-objects-map "n" 'vimp-inner-word)
@@ -162,7 +174,7 @@
 
 ;; ;;switching sides in visual mode
 ;; (define-key vimp-visual-state-map " a" 'exchange-point-and-mark)
-;; (define-key vimp-visual-state-map " A" 'vimp-visual-exchange-corners)
+;; (define-key yvimp-visual-state-map " A" 'vimp-visual-exchange-corners)
 
 ;; ;;space-prefixed motions
 ;; (define-key vimp-motion-state-map " " nil)
@@ -241,7 +253,6 @@
 
 
 (set-in-all-vimp-states-but-insert (kbd "\\")  'vimp-indent)
-
 ;;Unassigns previous object pending states
 (define-key vimp-visual-state-map "a" nil)
 (define-key vimp-visual-state-map "i" nil)
@@ -250,10 +261,9 @@
 
 
 ;; Insert / inner object pending state
-;; (set-in-all-vimp-states-but-insert "r" 'vimp-insert)
 (set-in-all-vimp-states-but-insert "R" 'vimp-insert-line)
-(lalopmak-vimp-define-key vimp-operator-state-map "y" vimp-inner-text-objects-map)
-(lalopmak-vimp-define-key vimp-visual-state-map "y" vimp-inner-text-objects-map)
+(lalopmak-vimp-define-key vimp-operator-state-map "r" vimp-inner-text-objects-map)
+(lalopmak-vimp-define-key vimp-visual-state-map "r" vimp-inner-text-objects-map)
 
 ;;Append / outer object pending state
 ;; (set-in-all-vimp-states-but-insert "s" 'vimp-append)
@@ -261,7 +271,7 @@
 (lalopmak-vimp-define-key vimp-operator-state-map "a" vimp-outer-text-objects-map)
 (lalopmak-vimp-define-key vimp-visual-state-map "a" vimp-outer-text-objects-map)
 
-;; (lalopmak-vimp-define-key vimp-visual-state-map "R" 'vimp-insert)
+(lalopmak-vimp-define-key vimp-visual-state-map "y" 'vimp-insert)
 ;; (lalopmak-vimp-define-key vimp-visual-state-map "S" 'vimp-append)
 
 ;;Change
