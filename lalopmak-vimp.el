@@ -107,8 +107,13 @@
 (define-key vimp-ex-completion-map  "\M-n" 'backward-word)
 
 ; ido
-(define-key ido-completion-map "\M-i" 'ido-next-match)
-(define-key vimp-ex-completion-map  "\M-n" 'ockward-word)
+(defun ido-my-keys ()
+ (define-key ido-completion-map "\M-i" 'ido-next-match)
+ (define-key ido-completion-map "\M-n" 'ido-prev-match)
+ (define-key ido-completion-map (kbd "<SPC>") 'ido-restrict-to-matches)
+ )
+
+(add-hook 'ido-setup-hook 'ido-my-keys)
 
 
 ;;directional object maps
@@ -262,8 +267,8 @@
 
 ;; Insert / inner object pending state
 (set-in-all-vimp-states-but-insert "R" 'vimp-insert-line)
-(lalopmak-vimp-define-key vimp-operator-state-map "r" vimp-inner-text-objects-map)
-(lalopmak-vimp-define-key vimp-visual-state-map "r" vimp-inner-text-objects-map)
+(lalopmak-vimp-define-key vimp-operator-state-map "y" vimp-inner-text-objects-map)
+(lalopmak-vimp-define-key vimp-visual-state-map "y" vimp-inner-text-objects-map)
 
 ;;Append / outer object pending state
 ;; (set-in-all-vimp-states-but-insert "s" 'vimp-append)
