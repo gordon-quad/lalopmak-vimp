@@ -115,6 +115,22 @@
 
 (add-hook 'ido-setup-hook 'ido-my-keys)
 
+; paredit/tagedit
+(define-key html-mode-map (kbd "C-c M-i") 'tagedit-forward-slurp-tag)
+(define-key html-mode-map (kbd "C-c M-n") 'tagedit-forward-barf-tag)
+
+(define-key paredit-mode-map (kbd "C-c M-i") 'paredit-forward-slurp-tag)
+(define-key paredit-mode-map (kbd "C-c M-n") 'paredit-forward-barf-tag)
+
+; auto-complete
+(require 'auto-complete-config)
+(ac-config-default)
+
+(define-key ac-menu-map "^[e" 'ac-next)
+(define-key ac-menu-map "^[u" 'ac-previous)
+(define-key ac-menu-map "^[i" 'ac-isearch)
+
+
 
 ;;directional object maps
 (lalopmak-vimp-define-key vimp-inner-text-objects-map "n" 'vimp-inner-word)
