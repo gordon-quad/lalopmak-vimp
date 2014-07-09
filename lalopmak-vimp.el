@@ -116,12 +116,12 @@
 (add-hook 'ido-setup-hook 'ido-my-keys)
 
 ; paredit/tagedit
-(after-load "html-mode"
+(eval-after-load "html-mode"
 	'(progn
 		(define-key html-mode-map (kbd "C-c M-i") 'tagedit-forward-slurp-tag)
 		(define-key html-mode-map (kbd "C-c M-n") 'tagedit-forward-barf-tag)))
 
-(after-load "paredit-mode"
+(eval-after-load "paredit-mode"
 	'(progn
 		(define-key paredit-mode-map (kbd "C-c M-i") 'paredit-forward-slurp-tag)
 		(define-key paredit-mode-map (kbd "C-c M-n") 'paredit-forward-barf-tag)))
