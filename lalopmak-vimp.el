@@ -18,7 +18,7 @@
 ;;  GNU General Public License for more details.
 
 ;;  You should have received a copy of the GNU General Public License
-;;  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+;;  along with this program.  If not, see .
 
 
 (require 'lalopmak-vimp-base)
@@ -44,12 +44,12 @@
 (set-in-all-vimp-states-but-insert "\M-s" 'vimp-jump-forward)
 
 (vimp-define-motion lalopmak-vimp-scroll-page-up (count)
-  "Scrolls page up 10 lines"
-  (previous-line 10))
+    "Scrolls page up 10 lines"
+    (previous-line 10))
 
 (vimp-define-motion lalopmak-vimp-scroll-page-down (count)
-  "Scrolls down 10 lines"
-  (next-line 10))
+    "Scrolls down 10 lines"
+    (next-line 10))
 
 ;;; Prev/next buffer
 (set-in-all-vimp-states-but-insert "\M-u" 'lalopmak-vimp-scroll-page-up)
@@ -86,14 +86,16 @@
 (set-in-all-vimp-states-but-insert " " 'vimp-jump-backward)
 (set-in-all-vimp-states-but-insert "ซ" 'vimp-jump-forward)
 (set-in-all-vimp-states-but-insert "\M->" 'next-buffer)
-(set-in-all-vimp-states-but-insert "\M-<" 'previous-buffer)
+(set-in-all-vimp-states-but-insert "\M-</RET>><" 'previous-buffer)
 (set-in-all-vimp-states-but-insert (kbd "<RET>") 'previous-buffer)
 (set-in-all-vimp-states-but-insert "ร" 'next-buffer)
 
-; Marks
+                                        ; Marks
 (lalopmak-vimp-define-key vimp-normal-state-map "M" 'vimp-set-marker)
 (set-in-all-vimp-states-but-insert "j" 'vimp-goto-mark)
 
+; multiple cursors
+(vimp-global-set-key 'normal (kbd "M-/") 'mc/mark-next-like-this)
 
 ;; Dired up and down
 (define-key dired-mode-map "e" 'next-line)
@@ -106,27 +108,38 @@
 (define-key vimp-ex-completion-map "\M-i" 'forward-word)
 (define-key vimp-ex-completion-map  "\M-n" 'backward-word)
 
-; ido
+                                        ; ido
 (defun ido-my-keys ()
- (define-key ido-completion-map "\M-i" 'ido-next-match)
- (define-key ido-completion-map "\M-n" 'ido-prev-match)
- (define-key ido-completion-map (kbd "<SPC>") 'ido-restrict-to-matches)
- )
+    (define-key ido-completion-map "\M-i" 'ido-next-match)
+    (define-key ido-completion-map "\M-n" 'ido-prev-match)
+    (define-key ido-completion-map (kbd "<SPC>") 'ido-restrict-to-matches)
+    )
 
 (add-hook 'ido-setup-hook 'ido-my-keys)
 
 ; paredit/tagedit
 (eval-after-load "html-mode"
 	'(progn
-		(define-key html-mode-map (kbd "C-c M-i") 'tagedit-forward-slurp-tag)
-		(define-key html-mode-map (kbd "C-c M-n") 'tagedit-forward-barf-tag)))
+         (define-key html-mode-map (kbd "C-c M-i") 'tagedit-forward-slurp-tag)
+         (define-key html-mode-map (kbd "C-c M-n") 'tagedit-forward-barf-tag)))
 
 (eval-after-load "paredit-mode"
 	'(progn
-		(define-key paredit-mode-map (kbd "C-c M-i") 'paredit-forward-slurp-tag)
-		(define-key paredit-mode-map (kbd "C-c M-n") 'paredit-forward-barf-tag)))
+         (vimp-define-key 'normal paredit-mode-map (kbd "C-c M-i") 'paredit-forward-slurp-sexp)
+         (vimp-define-key 'normal paredit-mode-map (kbd "C-c M-n") 'paredit-forward-barf-sexp)))
+
+; org-mode
+(vimp-define-key 'normal org-mode-map (kbd "C-M-i") 'org-demote-subtree)
+(vimp-define-key 'normal org-mode-map (kbd "C-M-n") 'org-promote-subtree)
+
+(vimp-define-key normal-state org-mode (kbd)"")
+
+; jedi
+(vimp-define-key 'normal python-mode-map (kbd "M-.") 'jedi:goto-definition)
 
 
+(abbrev-mode t)  ;; Note: *disables* abbrev-mode (?!)
+(lalopmak-vimp-define-key vimp-insert-state-map "\M-e" 'expand-abbrev)
 
 
 ;;directional object maps
@@ -162,8 +175,8 @@
 ;;; Undo/redo
 (lalopmak-vimp-define-key vimp-normal-state-map "p" 'undo)
 (when (fboundp 'undo-tree-undo)
-  (lalopmak-vimp-define-key vimp-normal-state-map "p" 'undo-tree-undo)
-  (lalopmak-vimp-define-key vimp-normal-state-map "\C-p" 'undo-tree-redo))
+    (lalopmak-vimp-define-key vimp-normal-state-map "p" 'undo-tree-undo)
+    (lalopmak-vimp-define-key vimp-normal-state-map "\C-p" 'undo-tree-redo))
 ;; =====
 
 
@@ -242,12 +255,12 @@
 
 
 (vimp-define-operator lalopmak-vimp-all-case (beg end type)
-  "Converts to all case, or, if already all case, converts to all lower case."
-  (let ((region (buffer-substring beg end)))
-    (if (equal (upcase region)
-               region)
-        (vimp-downcase beg end type)
-      (vimp-upcase beg end type))))
+    "Converts to all case, or, if already all case, converts to all lower case."
+    (let ((region (buffer-substring beg end)))
+        (if (equal (upcase region)
+                   region)
+                (vimp-downcase beg end type)
+            (vimp-upcase beg end type))))
 
 
 (lalopmak-vimp-define-key vimp-visual-state-map "m" 'lalopmak-vimp-all-case)
@@ -311,7 +324,7 @@
 ;;Line jump
 (set-in-all-vimp-states-but-insert "o" 'lalopmak-vimp-if-count-goto-line-else-ace-jump-line-mode) ;temporary assignment
 
-;switch to buffer
+                                        ;switch to buffer
 (lalopmak-vimp-define-key vimp-motion-state-map "b" 'switch-to-buffer)
 (lalopmak-vimp-define-key vimp-motion-state-map "\M-b" 'ido-write-file)
 (lalopmak-vimp-define-key vimp-motion-state-map "\C-b" 'fiplr-find-file)
@@ -323,36 +336,36 @@
 
 ;;;;;;;;;;;;PASTING;;;;;;;;;;;;;;;;;;
 (vimp-define-motion lalopmak-vimp-paste-below (count)
-  "Pastes in the line below."
-  (vimp-open-below 1)
-  ;; (newline count) ;;TODO count indicates number of lines until the paste
-  (vimp-paste-after 1))
+    "Pastes in the line below."
+    (vimp-open-below 1)
+    ;; (newline count) ;;TODO count indicates number of lines until the paste
+    (vimp-paste-after 1))
 
 (vimp-define-motion lalopmak-vimp-paste-below-then-normal (count)
-  "Pastes in the line below then normal mode."
-  (lalopmak-vimp-paste-below count)
-  (vimp-normal-state))
+    "Pastes in the line below then normal mode."
+    (lalopmak-vimp-paste-below count)
+    (vimp-normal-state))
 
 (vimp-define-motion lalopmak-vimp-paste-above (count)
-  "Pastes in the line above."
-  (vimp-open-above 1)
-  ;; (newline count) ;;TODO count indicates number of lines until the paste
-  (vimp-paste-after 1))
+    "Pastes in the line above."
+    (vimp-open-above 1)
+    ;; (newline count) ;;TODO count indicates number of lines until the paste
+    (vimp-paste-after 1))
 
 (vimp-define-motion lalopmak-vimp-paste-above-then-normal (count)
-  "Pastes in the line above then normal mode."
-  (lalopmak-vimp-paste-above count)
-  (vimp-normal-state))
+    "Pastes in the line above then normal mode."
+    (lalopmak-vimp-paste-above count)
+    (vimp-normal-state))
 
 (vimp-define-motion lalopmak-vimp-paste-at-bol (count)
-  "Pastes at beginning of line."
-  (back-to-indentation)
-  (vimp-paste-before 1))
+    "Pastes at beginning of line."
+    (back-to-indentation)
+    (vimp-paste-before 1))
 
 (vimp-define-motion lalopmak-vimp-paste-at-eol (count)
-  "Pastes at end of line."
-  (vimp-end-of-line)
-  (vimp-paste-after 1))
+    "Pastes at end of line."
+    (vimp-end-of-line)
+    (vimp-paste-after 1))
 
 ;;o to open in line above/below, or [number]o to go to line [number]
 (set-in-all-vimp-states-but-insert "z" 'vimp-open-below)
