@@ -58,9 +58,9 @@
 
 ;;; WORD forward/backward
 (set-in-all-vimp-states-but-insert "\M-i" 'vimp-forward-little-word-end)
-(set-in-all-vimp-states-but-insert "\M-I" 'vimp-forward-WORD-begin)
+(set-in-all-vimp-states-but-insert "\M-I" 'forward-symbol)
 (set-in-all-vimp-states-but-insert "\M-n" 'vimp-backward-little-word-begin)
-(set-in-all-vimp-states-but-insert "\M-N" 'vimp-backward-WORD-begin)
+(set-in-all-vimp-states-but-insert "\M-N" (lambda () (interactive) (forward-symbol -1)))
 
 (set-in-all-vimp-states-but-insert "I" 'vimp-append-line)
 (set-in-all-vimp-states-but-insert "R" 'vimp-insert-line)
