@@ -84,7 +84,7 @@
 (set-in-all-vimp-states-but-insert "\M-." 'vimp-jump-backward)
 (set-in-all-vimp-states-but-insert "\M-," 'vimp-jump-forward)
 (set-in-all-vimp-states-but-insert " " 'vimp-jump-backward)
-(set-in-all-vimp-states-but-insert "\S-<SPC>" 'vimp-jump-forward)
+(set-in-all-vimp-states-but-insert (kbd "S-SPC") 'vimp-jump-forward)
 (set-in-all-vimp-states-but-insert "\M->" 'next-buffer)
 (set-in-all-vimp-states-but-insert "\M-</RET>><" 'previous-buffer)
 (set-in-all-vimp-states-but-insert (kbd "<RET>") 'previous-buffer)
