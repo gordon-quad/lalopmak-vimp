@@ -84,7 +84,7 @@
 (set-in-all-vimp-states-but-insert "\M-." 'vimp-jump-backward)
 (set-in-all-vimp-states-but-insert "\M-," 'vimp-jump-forward)
 (set-in-all-vimp-states-but-insert " " 'vimp-jump-backward)
-(set-in-all-vimp-states-but-insert "ซ" 'vimp-jump-forward)
+(set-in-all-vimp-states-but-insert "\S-<SPC>" 'vimp-jump-forward)
 (set-in-all-vimp-states-but-insert "\M->" 'next-buffer)
 (set-in-all-vimp-states-but-insert "\M-</RET>><" 'previous-buffer)
 (set-in-all-vimp-states-but-insert (kbd "<RET>") 'previous-buffer)
@@ -100,6 +100,10 @@
 ;; Dired up and down
 (define-key dired-mode-map "e" 'next-line)
 (define-key dired-mode-map "u" 'previous-line)
+
+;; smartparens
+(vimp-global-set-key 'insert (kbd "M-i") 'sp-forward-slurp-sexp)
+(vimp-global-set-key 'insert (kbd "M-n") 'sp-forward-barf-sexp)
 
 
 ;; Minibuffer
