@@ -68,9 +68,9 @@
 
 ;;Ace jump
 (set-in-all-vimp-states-but-insert "\M-l" 'lalopmak-vimp-narrowed-ace-jump-char-to-mode)
-(set-in-all-vimp-states-but-insert "l" 'lalopmak-vimp-narrowed-ace-jump-char-mode)
-(setq ace-jump-word-mode-use-query-char nil)
-(set-in-all-vimp-states-but-insert "L" 'ace-jump-word-mode)
+(set-in-all-vimp-states-but-insert "L" 'lalopmak-vimp-narrowed-ace-jump-char-mode)
+(setq ace-jump-word-mode-use-query-char t)
+(set-in-all-vimp-states-but-insert "l" 'ace-jump-word-mode)
 
 
 (set-in-all-vimp-states-but-insert "f" 'helm-semantic-or-imenu)
@@ -85,6 +85,7 @@
 (set-in-all-vimp-states-but-insert "\M-," 'vimp-jump-forward)
 (set-in-all-vimp-states-but-insert " " 'vimp-jump-backward)
 (set-in-all-vimp-states-but-insert "\S-<SPC>" 'vimp-jump-forward)
+(set-in-all-vimp-states-but-insert "ซ" 'vimp-jump-forward)
 (set-in-all-vimp-states-but-insert "\M->" 'next-buffer)
 (set-in-all-vimp-states-but-insert "\M-</RET>><" 'previous-buffer)
 (set-in-all-vimp-states-but-insert (kbd "<RET>") 'previous-buffer)
@@ -105,6 +106,13 @@
 (vimp-global-set-key 'insert (kbd "M-i") 'sp-forward-slurp-sexp)
 (vimp-global-set-key 'insert (kbd "M-n") 'sp-forward-barf-sexp)
 
+;; undo tree
+(add-to-list 'vimp-emacs-state-modes 'undo-tree-visualizer-mode)
+(define-key undo-tree-visualizer-mode-map (kbd "u") 'undo-tree-visualize-undo)
+(define-key undo-tree-visualizer-mode-map (kbd "e") 'undo-tree-visualize-redo)
+(define-key undo-tree-visualizer-mode-map (kbd "n") 'undo-tree-visualize-switch-branch-left)
+(define-key undo-tree-visualizer-mode-map (kbd "i") 'undo-tree-visualize-switch-branch-right)
+
 
 ;; Minibuffer
 (define-key vimp-ex-completion-map "\M-e" 'next-complete-history-element)
@@ -120,17 +128,6 @@
     )
 
 (add-hook 'ido-setup-hook 'ido-my-keys)
-
-; paredit/tagedit
-(eval-after-load "html-mode"
-	'(progn
-         (define-key html-mode-map (kbd "C-c M-i") 'tagedit-forward-slurp-tag)
-         (define-key html-mode-map (kbd "C-c M-n") 'tagedit-forward-barf-tag)))
-
-(eval-after-load "paredit-mode"
-	'(progn
-         (vimp-define-key 'normal paredit-mode-map (kbd "C-c M-i") 'paredit-forward-slurp-sexp)
-         (vimp-define-key 'normal paredit-mode-map (kbd "C-c M-n") 'paredit-forward-barf-sexp)))
 
 ; org-mode
 (vimp-define-key 'normal org-mode-map (kbd "C-M-i") 'org-demote-subtree)
@@ -154,6 +151,8 @@
 ;; jabber
 (vimp-define-key 'normal jabber-roster-mode-map (kbd "<RET>") 'jabber-roster-ret-action-at-point)
 
+hierarchy-global-set-key 'visual (kbd "d") 'vimp-delete)
+
 ;;directional object maps
 (lalopmak-vimp-define-key vimp-inner-text-objects-map "n" 'vimp-inner-word)
 (lalopmak-vimp-define-key vimp-outer-text-objects-map "i" 'vimp-a-word)
@@ -173,7 +172,7 @@
 
 ;;; Cut/copy/paste
 (set-in-all-vimp-states-but-insert "x" 'vimp-substitute)
-(set-in-all-vimp-states-but-insert "X" 'vimp-delete-line)  ; delete to end of line; use dd to delete whole line
+(set-in-all-vimp-states-but-insert "D" 'vimp-delete-line)  ; delete to end of line; use dd to delete whole line
 (set-in-all-vimp-states-but-insert "c" 'vimp-yank)
 (set-in-all-vimp-states-but-insert "C" 'vimp-yank-line)
 
@@ -252,8 +251,8 @@
 ;; (cond (window-system  ; ensure not running in a terminal
 ;;        (lalopmak-vimp-local-set-key (kbd "<return>") 'newline)
 ;;        (lalopmak-vimp-local-set-key "\C-m" 'vimp-record-macro)))
-(lalopmak-vimp-define-key vimp-normal-state-map "'" 'vimp-execute-macro)
-(lalopmak-vimp-define-key vimp-normal-state-map "m" 'vimp-record-macro)
+(lalopmak-vimp-define-key vimp-normal-state-map "@" 'vimp-execute-macro)
+(lalopmak-vimp-define-key vimp-normal-state-map "b" 'vimp-record-macro)
 ;; (lalopmak-vimp-define-key vimp-normal-state-map "\"" 'vimp-execute-macro)
 
 
