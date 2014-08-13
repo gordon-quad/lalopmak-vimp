@@ -153,7 +153,7 @@
 ;; jabber
 (vimp-define-key 'normal jabber-roster-mode-map (kbd "<RET>") 'jabber-roster-ret-action-at-point)
 
-hierarchy-global-set-key 'visual (kbd "d") 'vimp-delete)
+(vimp-global-set-key 'visual (kbd "d") 'vimp-delete)
 
 ;;directional object maps
 (lalopmak-vimp-define-key vimp-inner-text-objects-map "n" 'vimp-inner-word)
