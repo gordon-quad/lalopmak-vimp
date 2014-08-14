@@ -62,7 +62,7 @@
 (set-in-all-vimp-states-but-insert "\M-n" 'vimp-backward-little-word-begin)
 (set-in-all-vimp-states-but-insert "\M-N" (lambda () (interactive) (forward-symbol -1)))
 
-(set-in-all-vimp-states-but-insert "I" 'vimp-append-line)
+(set-in-all-vimp-states-but-insert "I" 'lalopmak-vimp-narrowed-ace-jump-char-to-mode)
 (set-in-all-vimp-states-but-insert "R" 'vimp-insert-line)
 (set-in-all-vimp-states-but-insert ";" 'vimp-repeat-find-char)
 
