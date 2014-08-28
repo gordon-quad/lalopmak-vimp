@@ -137,10 +137,28 @@
 
 (eval-after-load "org-mode"
 	'(progn
-       (org-defkey org-columns-map "\M-n" 'backward-char)
-       (org-defkey org-columns-map "\M-i" 'forward-char)
-       (org-defkey org-columns-map "\M-u" 'previous-line)
-       (org-defkey org-columns-map "\M-e" 'next-line)
+       (org-defkey org-columns-map "n" 'backward-char)
+       (org-defkey org-columns-map "i"
+                   (lambda () (interactive) (goto-char (1+ (point)))))
+       (org-defkey org-columns-map "e"
+                   (lambda () (interactive)
+                     (let ((col (current-column)))
+                       (beginning-of-line 2)
+                       (while (and (org-invisible-p2) (not (eobp)))
+                         (beginning-of-line 2))
+                       (move-to-column col)
+                       (if (eq major-mode 'org-agenda-mode)
+                           (org-agenda-do-context-action)))))
+       (org-defkey org-columns-map "u"
+                   (lambda () (interactive)
+                     (let ((col (current-column)))
+                       (beginning-of-line 0)
+                       (while (and (org-invisible-p2) (not (bobp)))
+                         (beginning-of-line 0))
+                       (move-to-column col)
+                       (if (eq major-mode 'org-agenda-mode)
+                           (org-agenda-do-context-action)))))
+       (org-defkey org-columns-map "y" 'org-columns-edit-value)
 ))
 
 ; jedi
