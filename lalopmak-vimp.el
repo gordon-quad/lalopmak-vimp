@@ -122,12 +122,14 @@
 (define-key vimp-ex-completion-map "\M-i" 'forward-word)
 (define-key vimp-ex-completion-map  "\M-n" 'backward-word)
 
-                                        ; ido
+; ido
 (defun ido-my-keys ()
     (define-key ido-completion-map "\M-i" 'ido-next-match)
     (define-key ido-completion-map "\M-n" 'ido-prev-match)
     (define-key ido-completion-map (kbd "<SPC>") 'ido-restrict-to-matches)
     )
+
+(set-in-all-vimp-states-but-insert-and-motion (kbd "M-k") 'recenter-top-bottom)
 
 (add-hook 'ido-setup-hook 'ido-my-keys)
 
