@@ -196,7 +196,8 @@
 (set-in-all-vimp-states-but-insert "x" 'vimp-substitute)
 (set-in-all-vimp-states-but-insert "D" 'vimp-delete-line)  ; delete to end of line; use dd to delete whole line
 (set-in-all-vimp-states-but-insert "c" 'vimp-yank)
-(set-in-all-vimp-states-but-insert "C" 'vimp-yank-line)
+(set-in-all-vimp-states-but-insert "C" (lambda () (interactive) (vimp-yank (point) (point-at-eol))))
+
 
 ;; "Original" paste v/undo p
 ;; =====
