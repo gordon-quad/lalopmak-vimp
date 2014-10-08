@@ -171,7 +171,11 @@
 (lalopmak-vimp-define-key vimp-insert-state-map "\M-e" 'expand-abbrev)
 
 ;; jabber
-(vimp-define-key 'normal jabber-roster-mode-map (kbd "<RET>") 'jabber-roster-ret-action-at-point)
+(vimp-define-key 'normal jabber-roster-mode-map (kbd "RET")
+    (lambda () (interactive) (jabber-chat-with-jid-at-point)))
+(vimp-define-key 'normal jabber-roster-mode-map (kbd "o")
+    (lambda () (interactive) (jabber-roster-toggle-offline-display)))
+
 
 (vimp-global-set-key 'visual (kbd "d") 'vimp-delete)
 
