@@ -43,6 +43,9 @@
 (set-in-all-vimp-states-but-insert "\M-r" 'vimp-jump-backward)
 (set-in-all-vimp-states-but-insert "\M-s" 'vimp-jump-forward)
 
+
+(set-in-all-vimp-states-but-insert "\M-/" 'helm-occur)
+
 (vimp-define-motion lalopmak-vimp-scroll-page-up (count)
     "Scrolls page up 10 lines"
     (previous-line 10))
