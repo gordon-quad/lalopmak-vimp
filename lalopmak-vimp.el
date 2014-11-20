@@ -70,9 +70,9 @@
 (set-in-all-vimp-states-but-insert ";" 'vimp-repeat-find-char)
 
 ;;Ace jump
-(set-in-all-vimp-states-but-insert "\M-l" 'lalopmak-vimp-narrowed-ace-jump-char-to-mode)
-(set-in-all-vimp-states-but-insert "L" 'lalopmak-vimp-narrowed-ace-jump-char-mode)
-(setq ace-jump-word-mode-use-query-char t)
+(set-in-all-vimp-states-but-insert "\M-o" 'lalopmak-vimp-narrowed-ace-jump-char-to-mode)
+(set-in-all-vimp-states-but-insert "o" 'lalopmak-vimp-narrowed-ace-jump-char-mode)
+(setq ace-jump-word-mode-use-query-char nil)
 (set-in-all-vimp-states-but-insert "l" 'ace-jump-word-mode)
 
 
@@ -221,7 +221,8 @@
 ;; =====
 
 
-
+;; get back last visual selection
+(lalopmak-vimp-define-key vimp-normal-state-map "ga" 'vimp-visual-restore)
 
 ;;; Cursor position jumplist
 ;; (set-in-all-vimp-states-but-insert "N" 'vimp-jump-backward)
@@ -361,9 +362,6 @@
 ;; (set-in-all-vimp-states-but-insert "\M-f" 'vimp-find-char)
 (set-in-all-vimp-states-but-insert "\M-w" 'vimp-find-char-backward)
 (set-in-all-vimp-states-but-insert "\M-t" 'vimp-repeat-find-char)
-
-;;Line jump
-(set-in-all-vimp-states-but-insert "o" 'lalopmak-vimp-if-count-goto-line-else-ace-jump-line-mode) ;temporary assignment
 
                                         ;switch to buffer
 (lalopmak-vimp-define-key vimp-motion-state-map "b" 'switch-to-buffer)
