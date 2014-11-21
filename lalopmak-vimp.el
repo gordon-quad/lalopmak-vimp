@@ -100,9 +100,6 @@
 (lalopmak-vimp-define-key vimp-normal-state-map "M" 'vimp-set-marker)
 (set-in-all-vimp-states-but-insert "j" 'vimp-goto-mark)
 
-; multiple cursors
-(vimp-global-set-key 'normal (kbd "M-/") 'mc/mark-next-like-this)
-
 ;; Dired up and down
 (define-key dired-mode-map "e" 'next-line)
 (define-key dired-mode-map "u" 'previous-line)
