@@ -70,8 +70,8 @@
 (set-in-all-vimp-states-but-insert ";" 'vimp-repeat-find-char)
 
 ;;Ace jump
-(set-in-all-vimp-states-but-insert "\M-o" 'lalopmak-vimp-narrowed-ace-jump-char-to-mode)
-(set-in-all-vimp-states-but-insert "o" 'lalopmak-vimp-narrowed-ace-jump-char-mode)
+(set-in-all-vimp-states-but-insert "\M-o" 'lalopmak-vimp-narrowed-ace-jump-char-mode)
+(set-in-all-vimp-states-but-insert "o" 'lalopmak-vimp-narrowed-ace-jump-char-to-mode)
 (setq ace-jump-word-mode-use-query-char t)
 (set-in-all-vimp-states-but-insert "l" 'ace-jump-word-mode)
 
