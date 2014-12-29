@@ -137,6 +137,16 @@
 (vimp-define-key 'normal org-mode-map (kbd "C-M-i") 'org-demote-subtree)
 (vimp-define-key 'normal org-mode-map (kbd "C-M-n") 'org-promote-subtree)
 
+(vimp-define-key 'normal python-mode-map (kbd "M-.")
+    (lambda ()
+        (interactive)
+        (progn
+        (jedi:goto-definition)
+        (recenter-top-bottom 0))
+        ))
+
+
+
 (eval-after-load "org-mode"
 	'(progn
        (org-defkey org-columns-map "n" 'backward-char)
