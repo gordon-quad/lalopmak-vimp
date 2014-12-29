@@ -129,7 +129,8 @@
     (define-key ido-completion-map (kbd "<SPC>") 'ido-restrict-to-matches)
     )
 
-(set-in-all-vimp-states-but-insert-and-motion (kbd "M-k") 'recenter-top-bottom)
+(set-in-all-vimp-states-but-insert-and-motion (kbd "M-k")
+                                              (lambda () (interactive) (recenter-top-bottom 0)))
 
 (add-hook 'ido-setup-hook 'ido-my-keys)
 
