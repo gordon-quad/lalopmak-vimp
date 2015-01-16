@@ -45,6 +45,10 @@
 
 
 (set-in-all-vimp-states-but-insert "\M-/" 'helm-occur)
+(define-key vimp-normal-state-map "\M-s" 'helm-timi)
+(define-key vimp-insert-state-map "\M-s" 'helm-timi)
+(global-set-key (kbd "M-s") 'helm-timi)
+
 
 (vimp-define-motion lalopmak-vimp-scroll-page-up (count)
     "Scrolls page up 10 lines"
