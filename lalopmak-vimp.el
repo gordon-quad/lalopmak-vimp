@@ -50,7 +50,7 @@
 (global-set-key (kbd "M-m") 'helm-timi)
 
 
-(Vimp-define-motion lalopmak-vimp-scroll-page-up (count)
+(vimp-define-motion lalopmak-vimp-scroll-page-up (count)
     "Scrolls page up 10 lines"
     (previous-line 10))
 
