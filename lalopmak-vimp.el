@@ -45,9 +45,9 @@
 
 
 (set-in-all-vimp-states-but-insert "\M-/" 'helm-occur)
-(define-key vimp-normal-state-map "\M-m" 'helm-timi)
-(define-key vimp-insert-state-map "\M-m" 'helm-timi)
-(global-set-key (kbd "M-m") 'helm-timi)
+(define-key vimp-normal-state-map "m" 'helm-timi)
+(define-key vimp-insert-state-map "\M-m" 'helm-proj)
+(global-set-key (kbd "M-m") 'helm-proj)
 
 
 (vimp-define-motion lalopmak-vimp-scroll-page-up (count)
