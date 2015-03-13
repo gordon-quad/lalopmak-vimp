@@ -34,7 +34,7 @@
 (set-in-all-vimp-states-but-insert "n" 'vimp-backward-char)
 (set-in-all-vimp-states-but-insert "i" 'vimp-forward-char)
 ;;; Beginning/end of line (home/end)
-(set-in-all-vimp-states-but-insert "y" 'vimp-insert)
+(set-in-all-vimp-states-but-insert-and-motion "y" 'vimp-insert)
 (set-in-all-vimp-states-but-insert "\M-y" 'vimp-append)
 (set-in-all-vimp-states-but-insert "Y" 'vimp-insert-line)
 (set-in-all-vimp-states-but-insert "\M-Y" 'vimp-append-line)
@@ -47,7 +47,7 @@
 (set-in-all-vimp-states-but-insert "\M-/" 'helm-occur)
 (define-key vimp-normal-state-map "m" 'helm-timi)
 (define-key vimp-insert-state-map "\M-m" 'helm-proj)
-(global-set-key (kbd "M-m") 'helm-proj)
+(global-set-key "\M-m" 'helm-proj)
 
 
 (vimp-define-motion lalopmak-vimp-scroll-page-up (count)
@@ -62,6 +62,9 @@
 (set-in-all-vimp-states-but-insert "\M-u" 'lalopmak-vimp-scroll-page-up)
 (set-in-all-vimp-states-but-insert "\M-e" 'lalopmak-vimp-scroll-page-down)
 
+;; don't bind s, as we'll use it for vimp-leader
+(set-in-all-vimp-states-but-insert-and-motion "s" nil)
+
 
 ;;; WORD forward/backward
 (set-in-all-vimp-states-but-insert "\M-i" 'vimp-forward-little-word-end)
@@ -75,7 +78,7 @@
 
 ;;Ace jump
 (set-in-all-vimp-states-but-insert "\M-o" 'lalopmak-vimp-narrowed-ace-jump-char-mode)
-(set-in-all-vimp-states-but-insert "o" 'lalopmak-vimp-narrowed-ace-jump-char-to-mode)
+(set-in-all-vimp-states-but-insert "o" 'lalopmak-vimp-ace-jump-line-mode)
 (setq ace-jump-word-mode-use-query-char t)
 (set-in-all-vimp-states-but-insert "l" 'ace-jump-word-mode)
 
@@ -211,7 +214,7 @@
 ;; Execute command: map : to ;
 (lalopmak-vimp-define-key vimp-motion-state-map ";" 'vimp-ex);;; End of word forward/backward
 
-;;; Cut/copy/paste
+;;;  Cut/copy/paste
 (set-in-all-vimp-states-but-insert "x" 'vimp-substitute)
 (set-in-all-vimp-states-but-insert "D" 'vimp-delete-line)  ; delete to end of line; use dd to delete whole line
 (set-in-all-vimp-states-but-insert "c" 'vimp-yank)
@@ -459,10 +462,5 @@
 
 ;;experiment
 (setq vimp-cross-lines t)
-
-
-
-
-
 
 (provide 'lalopmak-vimp)
