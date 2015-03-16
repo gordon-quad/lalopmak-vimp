@@ -214,7 +214,7 @@
 ;; Execute command: map : to ;
 (lalopmak-vimp-define-key vimp-motion-state-map ";" 'vimp-ex);;; End of word forward/backward
 
-;;;  Cut/copy/paste
+;;;        Cut/copy/paste
 (set-in-all-vimp-states-but-insert "x" 'vimp-substitute)
 (set-in-all-vimp-states-but-insert "D" 'vimp-delete-line)  ; delete to end of line; use dd to delete whole line
 (set-in-all-vimp-states-but-insert "c" 'vimp-yank)
@@ -258,6 +258,8 @@
 (set-in-all-vimp-states-but-insert "A" 'vimp-visual-line)
 (set-in-all-vimp-states-but-insert "\C-a" 'mark-whole-buffer)
 (lalopmak-vimp-define-key vimp-motion-state-map "\M-a" 'vimp-visual-block)
+(lalopmak-vimp-define-key vimp-motion-state-map "f" 'vimp-find-char)
+(lalopmak-vimp-define-key vimp-motion-state-map "o" 'vimp-find-char-to)
 
 
 ;; ;;switching sides in visual mode
