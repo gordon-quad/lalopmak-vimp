@@ -78,7 +78,7 @@
 
 ;;Ace jump
 (set-in-all-vimp-states-but-insert "\M-o" 'lalopmak-vimp-narrowed-ace-jump-char-mode)
-(set-in-all-vimp-states-but-insert "o" 'lalopmak-vimp-ace-jump-line-mode)
+(lalopmak-vimp-define-key vimp-normal-state-map "o" 'lalopmak-vimp-ace-jump-line-mode)
 (setq ace-jump-word-mode-use-query-char t)
 (set-in-all-vimp-states-but-insert "l" 'ace-jump-word-mode)
 
