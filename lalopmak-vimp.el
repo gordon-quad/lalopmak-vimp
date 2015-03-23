@@ -34,7 +34,7 @@
 (set-in-all-vimp-states-but-insert "n" 'vimp-backward-char)
 (set-in-all-vimp-states-but-insert "i" 'vimp-forward-char)
 ;;; Beginning/end of line (home/end)
-(lalopmak-vimp-define-key vimp-normal-state-map "y" 'vimp-insert)
+(set-in-all-vimp-states-but-insert "y" 'vimp-insert)
 (set-in-all-vimp-states-but-insert "\M-y" 'vimp-append)
 (set-in-all-vimp-states-but-insert "Y" 'vimp-insert-line)
 (set-in-all-vimp-states-but-insert "\M-Y" 'vimp-append-line)
@@ -345,9 +345,9 @@
 (set-in-all-vimp-states-but-insert (kbd "\\")  'vimp-indent)
 ;;Unassigns previous object pending states
 (define-key vimp-visual-state-map "a" nil)
-(define-key vimp-visual-state-map "i" nil)
+(define-key vimp-visual-state-map "y" nil)
 (define-key vimp-operator-state-map "a" nil)
-(define-key vimp-operator-state-map "i" nil)
+(define-key vimp-operator-state-map "y" nil)
 
 
 ;; Insert / inner object pending state
