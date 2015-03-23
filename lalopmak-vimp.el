@@ -34,7 +34,7 @@
 (set-in-all-vimp-states-but-insert "n" 'vimp-backward-char)
 (set-in-all-vimp-states-but-insert "i" 'vimp-forward-char)
 ;;; Beginning/end of line (home/end)
-(set-in-all-vimp-states-but-insert-and-motion "y" 'vimp-insert)
+(lalopmak-vimp-define-key vimp-normal-state-map "y" 'vimp-insert)
 (set-in-all-vimp-states-but-insert "\M-y" 'vimp-append)
 (set-in-all-vimp-states-but-insert "Y" 'vimp-insert-line)
 (set-in-all-vimp-states-but-insert "\M-Y" 'vimp-append-line)
@@ -215,7 +215,7 @@
 (lalopmak-vimp-define-key vimp-motion-state-map ";" 'vimp-ex);;; End of word forward/backward
 
 ;;;        Cut/copy/paste
-(set-in-all-vimp-states-but-insert "x" 'vimp-substitute)
+(set-in-all-vimp-states-but-insert "x" 'vimp-delete-char)
 (set-in-all-vimp-states-but-insert "D" 'vimp-delete-line)  ; delete to end of line; use dd to delete whole line
 (set-in-all-vimp-states-but-insert "c" 'vimp-yank)
 (set-in-all-vimp-states-but-insert "C" (lambda () (interactive) (vimp-yank (point) (point-at-eol))))
