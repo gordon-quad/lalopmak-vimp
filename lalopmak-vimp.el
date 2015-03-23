@@ -349,7 +349,6 @@
 (define-key vimp-operator-state-map "a" nil)
 (define-key vimp-operator-state-map "y" nil)
 
-
 ;; Insert / inner object pending state
 (set-in-all-vimp-states-but-insert "R" 'vimp-insert-line)
 (lalopmak-vimp-define-key vimp-operator-state-map "y" vimp-inner-text-objects-map)
@@ -361,7 +360,6 @@
 (lalopmak-vimp-define-key vimp-operator-state-map "a" vimp-outer-text-objects-map)
 (lalopmak-vimp-define-key vimp-visual-state-map "a" vimp-outer-text-objects-map)
 
-(lalopmak-vimp-define-key vimp-visual-state-map "y" 'vimp-insert)
 ;; (lalopmak-vimp-define-key vimp-visual-state-map "S" 'vimp-append)
 
 ;;Change
