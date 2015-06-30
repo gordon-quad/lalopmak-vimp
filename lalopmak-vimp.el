@@ -49,6 +49,7 @@
 (define-key vimp-insert-state-map "\M-m" 'helm-proj)
 (global-set-key "\M-m" 'helm-proj)
 
+(set-in-all-vimp-states "\M-s" 'helm-org-agenda-items)
 
 (vimp-define-motion lalopmak-vimp-scroll-page-up (count)
     "Scrolls page up 10 lines"
