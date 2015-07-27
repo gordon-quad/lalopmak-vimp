@@ -83,10 +83,16 @@ list of categories."
 
 (vimp-define-text-object vimp-a-little-word (count &optional beg end type)
   "Select a little word."
-  (vimp-an-object-range count beg end type #'vimp-move-little-word))
+  (vimp-select-an-object 'vimp-little-word beg end type count))
 
 (vimp-define-text-object vimp-inner-little-word (count &optional beg end type)
   "Select inner little word."
-  (vimp-inner-object-range count beg end type #'vimp-move-little-word))
+  (vimp-select-inner-object 'vimp-little-word beg end type count))
+
+(defun forward-vimp-little-word (&optional count)
+    "Move by little words."
+    "Forward by little words."
+    (vimp-with-little-word (vimp-move-word count)))
+  (vimp-with-little-word (forward-vimp-word count)))
 
 (provide 'lalopmak-camel-case)

@@ -25,7 +25,7 @@
 (defvar lalopmak-vimp-narrowed-ace-jump-num-input-chars 1,
   "The default number of input chars to search in narrowed mode.")
 
-(defun lalopmak-vimp-set-ace-jump-num-lines (n)
+defun lalopmak-vimp-set-ace-jump-num-lines (n)
   (if (>= n 0)
       (setq lalopmak-vimp-ace-jump-num-lines n)
     (setq lalopmak-vimp-ace-jump-num-lines nil)))

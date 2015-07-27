@@ -130,6 +130,10 @@
 (define-key vimp-ex-completion-map "\M-i" 'forward-word)
 (define-key vimp-ex-completion-map  "\M-n" 'backward-word)
 
+
+;; Send an email from anywhere
+(set-in-all-vimp-states-but-insert "\C-\M-n" 'mu4e-compose-new)
+
 ; ido
 (defun ido-my-keys ()
     (define-key ido-completion-map "\M-i" 'ido-next-match)
