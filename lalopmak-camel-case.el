@@ -92,7 +92,7 @@ list of categories."
 (defun forward-vimp-little-word (&optional count)
     "Move by little words."
     "Forward by little words."
-    (vimp-with-little-word (vimp-move-word count)))
+    (vimp-with-little-word (vimp-move-word count))
   (vimp-with-little-word (forward-vimp-word count)))
 
 (provide 'lalopmak-camel-case)
