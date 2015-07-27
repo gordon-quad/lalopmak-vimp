@@ -57,10 +57,6 @@ list of categories."
           vimp-little-word-combining-categories))
      ,@body))
 
-(vimp-define-union-move vimp-move-little-word (count)
-  "Move by little words."
-  (vimp-with-little-word (vimp-move-word count)))
-
 (vimp-define-motion vimp-forward-little-word-begin (count)
   "Move the cursor to the beginning of the COUNT-th next little word."
   :type exclusive
