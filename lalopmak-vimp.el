@@ -117,6 +117,8 @@
 (vimp-global-set-key 'insert (kbd "M-n") 'sp-forward-barf-sexp)
 
 ;; undo tree
+(require 'undo-tree)
+(global-undo-tree-mode)
 (add-to-list 'vimp-emacs-state-modes 'undo-tree-visualizer-mode)
 (define-key undo-tree-visualizer-mode-map (kbd "u") 'undo-tree-visualize-undo)
 (define-key undo-tree-visualizer-mode-map (kbd "e") 'undo-tree-visualize-redo)
