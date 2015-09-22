@@ -134,7 +134,8 @@
 
 
 ;; Send an email from anywhere
-(set-in-all-vimp-states-but-insert "\C-\M-n" 'mu4e-compose-new)
+(set-in-all-vimp-states-but-insert "\C-\M-m" 'mu4e-compose-new)
+(global-set-key "\C-\M-m" 'mu4e-compose-new)
 
 ; ido
 (defun ido-my-keys ()
