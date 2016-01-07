@@ -44,7 +44,7 @@
 (set-in-all-vimp-states-but-insert "\M-s" 'vimp-jump-forward)
 
 
-(set-in-all-vimp-states-but-insert "\M-/" 'helm-occur)
+(set-in-all-vimp-states-but-insert "\M-h" 'helm-swoop)
 (define-key vimp-normal-state-map "m" 'helm-timi)
 (define-key vimp-insert-state-map "\M-m" 'helm-proj)
 (global-set-key "\M-m" 'helm-proj)
@@ -94,10 +94,7 @@
 
 (set-in-all-vimp-states-but-insert "\M-." 'vimp-jump-backward)
 (set-in-all-vimp-states-but-insert "\M-," 'vimp-jump-forward)
-(set-in-all-vimp-states-but-insert " " 'vimp-jump-backward)
 
-(set-in-all-vimp-states-but-insert (kbd "S-<SPC>") 'vimp-jump-forward)
-(set-in-all-vimp-states-but-insert "ซ" 'vimp-jump-forward)
 
 (set-in-all-vimp-states-but-insert (kbd "<RET>") 'previous-buffer)
 (set-in-all-vimp-states-but-insert (kbd "S-<RET>") 'next-buffer)
@@ -161,6 +158,8 @@
         ))
 
 
+(set-in-all-vimp-states-but-insert (kbd "<tab>") 'indent-region)
+
 
 (eval-after-load "org-mode"
 	'(progn
@@ -193,7 +192,6 @@
 
 
 (abbrev-mode t)  ;; Note: *disables* abbrev-mode (?!)
-(lalopmak-vimp-define-key vimp-insert-state-map "\M-e" 'expand-abbrev)
 
 ;; jabber
 (vimp-define-key 'normal jabber-roster-mode-map (kbd "RET")
