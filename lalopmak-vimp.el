@@ -350,7 +350,7 @@
 (set-in-all-vimp-states-but-insert (kbd "\\")  'vimp-indent)
 ;;Unassigns previous object pending states
 (define-key vimp-visual-state-map "a" nil)
-(define-key vimp-visual-state-map "y" nil)
+(define-key vimp-visual-state-map "y" 'vimp-insert)
 (define-key vimp-operator-state-map "a" nil)
 (define-key vimp-operator-state-map "y" nil)
 
