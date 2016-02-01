@@ -350,6 +350,8 @@
 ;;Unassigns previous object pending states
 (define-key vimp-visual-state-map "a" nil)
 (define-key vimp-visual-state-map "y" 'vimp-insert)
+
+(define-key vimp-visual-state-map "o" 'lalopmak-vimp-ace-jump-line-mode)
 (define-key vimp-operator-state-map "a" nil)
 (define-key vimp-operator-state-map "y" nil)
 
