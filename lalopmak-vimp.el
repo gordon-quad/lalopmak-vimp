@@ -260,6 +260,7 @@
 (set-in-all-vimp-states-but-insert "\C-a" 'mark-whole-buffer)
 (lalopmak-vimp-define-key vimp-motion-state-map "\M-a" 'vimp-visual-block)
 (lalopmak-vimp-define-key vimp-motion-state-map "f" 'vimp-find-char)
+(lalopmak-vimp-define-key vimp-operator-state-map "i" 'vimp-find-char-to)
 (lalopmak-vimp-define-key vimp-motion-state-map "i" 'vimp-find-char-to)
 
 
