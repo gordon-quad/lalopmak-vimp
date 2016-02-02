@@ -62,9 +62,6 @@
 (set-in-all-vimp-states-but-insert "\M-u" 'lalopmak-vimp-scroll-page-up)
 (set-in-all-vimp-states-but-insert "\M-e" 'lalopmak-vimp-scroll-page-down)
 
-;; don't bind s, as we'll use it for vimp-leader
-(set-in-all-vimp-states-but-insert-and-motion "s" nil)
-
 
 ;;; WORD forward/backward
 (set-in-all-vimp-states-but-insert "\M-i" 'vimp-forward-little-word-end)
@@ -263,7 +260,7 @@
 (set-in-all-vimp-states-but-insert "\C-a" 'mark-whole-buffer)
 (lalopmak-vimp-define-key vimp-motion-state-map "\M-a" 'vimp-visual-block)
 (lalopmak-vimp-define-key vimp-motion-state-map "f" 'vimp-find-char)
-(lalopmak-vimp-define-key vimp-motion-state-map "o" 'vimp-find-char-to)
+(lalopmak-vimp-define-key vimp-motion-state-map "i" 'vimp-find-char-to)
 
 
 ;; ;;switching sides in visual mode
