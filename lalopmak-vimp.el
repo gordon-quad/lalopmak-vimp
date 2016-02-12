@@ -154,7 +154,7 @@
         ))
 
 
-(set-in-all-vimp-states-but-insert (kbd "<tab>") 'indent-region)
+(set-in-all-vimp-states-but-insert (kbd "<tab>") 'indent-for-tab-command)
 
 
 (eval-after-load "org-mode"
@@ -218,7 +218,8 @@
 ;;;        Cut/copy/paste
 (set-in-all-vimp-states-but-insert "x" 'vimp-delete-char)
 (set-in-all-vimp-states-but-insert "D" 'vimp-delete-line)  ; delete to end of line; use dd to delete whole line
-(set-in-all-vimp-states-but-insert "c" 'vimp-yank)
+(lalopmak-vimp-define-key vimp-normal-state-map "c" 'vimp-yank)
+(lalopmak-vimp-define-key vimp-visual-state-map "c" 'vimp-yank)
 (set-in-all-vimp-states-but-insert "C" (lambda () (interactive) (vimp-yank (point) (point-at-eol))))
 
 
@@ -262,6 +263,10 @@
 (lalopmak-vimp-define-key vimp-motion-state-map "f" 'vimp-find-char)
 (lalopmak-vimp-define-key vimp-operator-state-map "i" 'vimp-find-char-to)
 (lalopmak-vimp-define-key vimp-motion-state-map "i" 'vimp-find-char-to)
+(lalopmak-vimp-define-key vimp-motion-state-map "c" 'vimp-yank-line)
+(lalopmak-vimp-define-key vimp-operator-state-map "c" 'vimp-yank-line)
+
+
 
 
 ;; ;;switching sides in visual mode
