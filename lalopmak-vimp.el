@@ -265,6 +265,10 @@
 (lalopmak-vimp-define-key vimp-motion-state-map "i" 'vimp-find-char-to)
 (lalopmak-vimp-define-key vimp-motion-state-map "c" 'vimp-yank-line)
 (lalopmak-vimp-define-key vimp-operator-state-map "c" 'vimp-yank-line)
+(lalopmak-vimp-define-key vimp-visual-state-map "\C-\M-u" 'undo)
+(lalopmak-vimp-define-key vimp-visual-state-map "\C-\M-e" 'redo)
+
+
 
 
 
