@@ -26,69 +26,69 @@
     (dolist (ch (car (cddr elt)))
       (modify-category-entry ch (cadr elt) table))))
 
-(defgroup vimp-little-word nil
+(defgroup evil-little-word nil
   "CamelCase and snake_case word movement support."
-  :prefix "vimp-little-word-"
-  :group 'vimp)
+  :prefix "evil-little-word-"
+  :group 'evil)
 
-(defcustom vimp-little-word-separating-categories
-  (append vimp-cjk-word-separating-categories '((?u . ?U) (?_ . ?u) (?_ . ?U)))
+(defcustom evil-little-word-separating-categories
+  (append evil-cjk-word-separating-categories '((?u . ?U) (?_ . ?u) (?_ . ?U)))
   "List of pair (cons) of categories to determine word boundary
 for little word movement. See the documentation of
 `word-separating-categories'. Use `describe-categories' to see
 the list of categories."
   :type '((character . character))
-  :group 'vimp-little-word)
+  :group 'evil-little-word)
 
-(defcustom vimp-little-word-combining-categories
-  (append vimp-cjk-word-combining-categories '())
+(defcustom evil-little-word-combining-categories
+  (append evil-cjk-word-combining-categories '())
   "List of pair (cons) of categories to determine word boundary
 for little word movement. See the documentation of
 `word-combining-categories'. Use `describe-categories' to see the
 list of categories."
   :type '((character . character))
-  :group 'vimp-little-word)
+  :group 'evil-little-word)
 
-(defmacro vimp-with-little-word (&rest body)
+(defmacro evil-with-little-word (&rest body)
   (declare (indent defun) (debug t))
-  `(let ((vimp-cjk-word-separating-categories
-          vimp-little-word-separating-categories)
-         (vimp-cjk-word-combining-categories
-          vimp-little-word-combining-categories))
+  `(let ((evil-cjk-word-separating-categories
+          evil-little-word-separating-categories)
+         (evil-cjk-word-combining-categories
+          evil-little-word-combining-categories))
      ,@body))
 
-(vimp-define-motion vimp-forward-little-word-begin (count)
+(evil-define-motion evil-forward-little-word-begin (count)
   "Move the cursor to the beginning of the COUNT-th next little word."
   :type exclusive
-  (vimp-with-little-word (vimp-forward-word-begin count)))
+  (evil-with-little-word (evil-forward-word-begin count)))
 
-(vimp-define-motion vimp-forward-little-word-end (count)
+(evil-define-motion evil-forward-little-word-end (count)
   "Move the cursor to the end of the COUNT-th next little word."
   :type inclusive
-  (vimp-with-little-word (vimp-forward-word-end count)))
+  (evil-with-little-word (evil-forward-word-end count)))
 
-(vimp-define-motion vimp-backward-little-word-begin (count)
+(evil-define-motion evil-backward-little-word-begin (count)
   "Move the cursor to the beginning of the COUNT-th previous little word."
   :type exclusive
-  (vimp-with-little-word (vimp-backward-word-begin count)))
+  (evil-with-little-word (evil-backward-word-begin count)))
 
- (vimp-define-motion vimp-backward-little-word-end (count)
+ (evil-define-motion evil-backward-little-word-end (count)
   "Move the cursor to the end of the COUNT-th previous little word."
   :type inclusive
-  (vimp-with-little-word (vimp-backward-word-end count)))
+  (evil-with-little-word (evil-backward-word-end count)))
 
-(vimp-define-text-object vimp-a-little-word (count &optional beg end type)
+(evil-define-text-object evil-a-little-word (count &optional beg end type)
   "Select a little word."
-  (vimp-select-an-object 'vimp-little-word beg end type count))
+  (evil-select-an-object 'evil-little-word beg end type count))
 
-(vimp-define-text-object vimp-inner-little-word (count &optional beg end type)
+(evil-define-text-object evil-inner-little-word (count &optional beg end type)
   "Select inner little word."
-  (vimp-select-inner-object 'vimp-little-word beg end type count))
+  (evil-select-inner-object 'evil-little-word beg end type count))
 
-(defun forward-vimp-little-word (&optional count)
+(defun forward-evil-little-word (&optional count)
     "Move by little words."
     "Forward by little words."
-    (vimp-with-little-word (vimp-move-word count))
-  (vimp-with-little-word (forward-vimp-word count)))
+    (evil-with-little-word (evil-move-word count))
+  (evil-with-little-word (forward-evil-word count)))
 
 (provide 'lalopmak-camel-case)
