@@ -367,8 +367,8 @@
 (lalopmak-evil-define-key evil-visual-state-map "y" evil-inner-text-objects-map)
 
 ;;Append / outer object pending state
-;; (set-in-all-evil-states-but-insert "s" 'evil-append)
-;; (set-in-all-evil-states-but-insert "S" 'evil-append-line)
+(set-in-all-evil-states-but-insert "s" 'evil-append)
+(set-in-all-evil-states-but-insert "S" 'evil-append-line)
 (lalopmak-evil-define-key evil-operator-state-map "a" evil-outer-text-objects-map)
 (lalopmak-evil-define-key evil-visual-state-map "a" evil-outer-text-objects-map)
 
