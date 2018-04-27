@@ -45,9 +45,6 @@
 
 
 (set-in-all-evil-states-but-insert "\M-h" 'helm-swoop-without-pre-input)
-(define-key evil-normal-state-map "m" 'helm-timi)
-(define-key evil-insert-state-map "\M-m" 'helm-proj)
-(global-set-key "\M-m" 'helm-proj)
 
 
 (evil-define-motion lalopmak-evil-scroll-page-up (count)
