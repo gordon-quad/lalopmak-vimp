@@ -472,6 +472,8 @@
 ;;experiment
 (setq evil-cross-lines t)
 
+(evil-set-auxiliary-keymap evil-paredit-mode-map 'normal (make-sparse-keymap))
+
 (evil-define-key 'normal evil-paredit-mode-map
    (kbd "d") 'evil-paredit-delete
    (kbd "t") 'evil-paredit-change
