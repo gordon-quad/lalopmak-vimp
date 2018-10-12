@@ -77,8 +77,8 @@
 (set-in-all-evil-states-but-insert "l" 'ace-jump-word-mode)
 
 
-(set-in-all-evil-states-but-insert "f" 'helm-semantic-or-imenu)
-(set-in-all-evil-states-but-insert "\M-f" 'helm-etags-select)
+;(set-in-all-evil-states-but-insert "f" 'helm-semantic-or-imenu)
+;(set-in-all-evil-states-but-insert "\M-f" 'helm-etags-select)
 
 (winner-mode)
 (global-set-key "\M-m" 'window-configuration-to-register)
@@ -383,7 +383,7 @@
 ;; (set-in-all-evil-states-but-insert "\C-p" 'evil-jump-forward)
 
 ;;old find char/reverse for use in macros
-;; (set-in-all-evil-states-but-insert "\M-f" 'evil-find-char)
+(set-in-all-evil-states-but-insert "\M-f" 'evil-find-char)
 (set-in-all-evil-states-but-insert "\M-w" 'evil-find-char-backward)
 (set-in-all-evil-states-but-insert "\M-t" 'evil-repeat-find-char)
 
