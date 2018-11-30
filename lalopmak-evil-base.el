@@ -631,7 +631,7 @@ entire region has been struck through) unstrikes region."
             (x-set-selection 'PRIMARY (buffer-substring-no-properties
                                        evil-visual-beginning
                                        evil-visual-end)))
-          (setq x-last-selected-text-primary))))))
+          (setq x-last-selected-text-primary nil))))))
 
 (setq evil-search-module 'evil-search)
 
